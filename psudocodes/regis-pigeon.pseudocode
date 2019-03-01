@@ -1,0 +1,65 @@
+class Box:
+    private max_capacity
+    public capacity
+    public semaphore
+
+    fun constructor (val max_capacity = 20, val semaphore):
+        this.max_capacity = max_capacity
+        this.capacity = 0
+        this.semaphore = semaphore
+
+    fun insert_messenge() -> Bool:
+        if this.capacity != this.max_capacity:
+            this.capacity++
+            return true
+        else: return false
+
+    fun pull_mesenges(num) -> Bool:
+        if capacity >= num:
+            this.capacity -= num
+            return true
+        else: return false
+
+
+class Writer extends Thread:
+    private te // time to write a messenges
+    private box
+    private finish_writing: Time
+    private animations: Animations // animations for writer
+
+    fun constructor (val te, val box: Box):
+        this.te = te
+        this.box = box
+
+    fun start_writing():
+        while true:
+            this.animations.writing()
+            if finish_writing: 
+                insert_messenge()
+
+    fun ended_wrinting() -> Bool = Time.now() > finish_writing
+
+    fun insert_messenge():
+        this.box.semaphore.down()
+
+        while not box.insert_messenge():
+            this.animations.trying_insert_messenge()
+        this.animations.inseting_messenge()
+
+        this.box.semaphore.up()
+
+
+class Pegeon:
+    private n
+    private tc
+    private tv
+    private td
+
+    fun constructor (val n, val tc, val tv, val td):
+        this.n = n // pigeon capacity
+        this.tc = tc // time to load messenges from the box on the pegeon
+        this.tv = tv // time of flight
+        this.td = td // time to unload the pegeon
+
+    fun load ():
+        while ()
