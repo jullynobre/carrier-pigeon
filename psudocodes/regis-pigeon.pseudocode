@@ -90,7 +90,7 @@ class Main:
         val box = Box(max_capacity = 30)
         val pegeon = Pegeon(n = 5, tc = 100, tv = 1000, td = 150, box)
 
-        val writers = [Writer(2000), Writer(1500), Writer(2100)]
+        val writers = [Writer(2000, box), Writer(1500, box), Writer(2100, box)]
 
         pegeon.start_job()
         for w in writers: w.write()
