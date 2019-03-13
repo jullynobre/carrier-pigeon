@@ -1,28 +1,51 @@
 class Box:
-    private max_capacity
-    public capacity
-    public semaphore
+    private demux_semaphore
+    private max_capacity_semaphore
+    private pigeon_load_semaphore.up()
+
+    private pigeon_capacity
+    private uncounted_letters
+
 
     fun constructor (val max_capacity = 20):
-        this.max_capacity = max_capacity
-        this.capacity = 0
-        this.semaphore = Semaphore()
+        this.max_capacity_semaphore = Semaphore(max_capacity)
+        this.demux_semaphore = Semaphore(1)
+        this.pigeon_load_semaphore.up() = Semaphore(0)
 
-    fun insert_messenge() -> Bool:
-        if this.capacity != this.max_capacity:
-            this.semaphore.down()
-            this.capacity++
-            this.semaphore.up()
-            return true
-        else: return false
+        this.uncounted_letters = 0
+        this.pigeon_capacity = 0
 
-    fun pull_mesenges(num) -> Bool:
-        if capacity >= num:
-            this.semaphore.down()
-            this.capacity -= num
-            this.semaphore.up()
-            return true
-        else: return false
+
+    fun insert_messenge():
+        this.max_capacity_semaphore.down()
+        this.demux_semaphore.down()
+
+        if this.pigeon_capacity != 0 and this.uncounted_letters == this.pigeon_capacity:
+            this.pigeon_load_semaphore.up()
+            this.uncounted_letters = 0
+        else:
+            this.uncounted_letters ++
+
+        this.demux_semaphore.up()
+
+
+    fun pull_mesenges():
+        if this.pigeon_capacity == 0:
+            print("É necessário registrar um pombo")
+        else:
+            this.pigeon_load_semaphore.down()
+
+            for 0..this.pigeon_capacity:
+                this.max_capacity_semaphore.up()
+
+
+    fun register_pigeon(pigeon_capacity):
+        this.pigeon_capacity = pigeon_capacity
+        
+        for i in 0..this.uncounted_letters.integer_division(this.pigeon_capacity):
+            this.pigeon_load_semaphore.up()
+
+        this.uncounted_letters = this.uncounted_letters % this.pigeon_capacity
 
 
 class Writer extends Thread:
@@ -31,10 +54,12 @@ class Writer extends Thread:
     private animations: Animations // animations for writer
     private fired = false
 
+
     fun constructor (val te, val box: Box):
         this.te = te
         this.box = box
         this.fired = false
+
 
     fun start_writing():
         while not this.fired:
@@ -43,22 +68,22 @@ class Writer extends Thread:
             while Time.now() > end_action:
                 this.animations.writing()
 
-            while not this.box.insert_messenge:
-                this.animations.trying_insert_messenge()
+            this.animations.done_writing()
+            this.box.insert_messenge()
 
-            this.animations.inseting_messenge()
 
     fun fire() = this.fired = true
 
 
 class Pegeon extends Thread:
     private n      // pigeon capacity
-    private tc     // time to load messenges from the box on the pegeon
+    private tc     // time to load messenges from the box on the pigeon
     private tv     // time of flight
     private td     // time to unload the pegeon
     private fired  // flag for ending this thread
     private box
     private animations: Animations // animations for writer
+
 
     fun constructor (val n, val tc, val tv, val td, val box):
         this.n = n 
@@ -68,10 +93,13 @@ class Pegeon extends Thread:
         this.fired = false
         this.box = box
 
+        box.register_pigeon(n)
+
+
     fun start_job ():
         while not this.fired:
-            while not this.semaphore.pull_mesenges(n):
-                this.animations.wating_messenges()
+            this.animations.wating_messenges()
+            this.box.pull_mesenges()
 
             var end_action = Time.now() + tv
             while Time.now() < end_action: this.animations.flying()
@@ -88,9 +116,9 @@ class Pegeon extends Thread:
 class Main:
     fun main():
         val box = Box(max_capacity = 30)
-        val pegeon = Pegeon(n = 5, tc = 100, tv = 1000, td = 150, box)
+        val pegeon = Pegeon(n = 5, tc = 1, tv = 10, td = 2, box)
 
-        val writers = [Writer(2000, box), Writer(1500, box), Writer(2100, box)]
+        val writers = [Writer(20, box), Writer(15, box), Writer(21, box)]
 
         pegeon.start_job()
         for w in writers: w.write()
