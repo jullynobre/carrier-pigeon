@@ -1,0 +1,41 @@
+SEMAPHORE boxMessages = 0
+SEMAPHORE boxCapacity = n
+SEMAPHORE mutex = 1
+
+THREAD USUARIO
+func run() {
+    while(true) {
+        message = writeMessage()
+        boxCapacity.down()
+
+        down(mutex)
+        updateInterface()
+        up(mutex)
+        
+        boxMessages.up()
+    }
+}
+
+THREAD POMBO
+int pigeonCapacity = m
+func run() {
+    while(true) {
+        boxMessages.down(pigeonCapacity)
+        
+        down(mutex)
+        updateInterface(messages: pigeonCapacity)
+        up(mutex)
+        
+        boxCapacity.up(pigeonCapacity)
+    }
+}
+
+
+
+
+
+
+
+
+
+
