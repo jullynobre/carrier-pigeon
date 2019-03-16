@@ -14,7 +14,7 @@ protocol WriterUI {
 	func updateWriterToWritingState()
 	func updateWriterToPuttingMessagesIntoBox()
 	
-	func getBoxMessagesCounter() -> Int
-	func decreaseBoxMessagesCounter(quantity: Int)
+	func isBoxFull() -> Bool
+	func increaseBoxMessagesCounter(quantity: Int)
 	
 }

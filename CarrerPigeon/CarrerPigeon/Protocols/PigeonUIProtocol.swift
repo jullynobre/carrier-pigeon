@@ -16,7 +16,7 @@ protocol PigeonUI {
 	func updatePigeonToUnloadingState()
 	func updatePigeonToFlingBackState()
 	
-	func getBoxMessagesCounter() -> Int
-	func increaseBoxMessagesCounter(quantity: Int)
+	func boxHas(quantityOfMessages: Int) -> Bool
+	func decreaseBoxMessagesCounter(quantity: Int)
 	
 }

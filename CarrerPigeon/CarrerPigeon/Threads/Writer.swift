@@ -9,7 +9,6 @@
 import Foundation
 
 class Writer {
-	let mutex: DispatchSemaphore
 	let boxMessages: DispatchSemaphore
 	let boxCapacity: DispatchSemaphore
 	
@@ -17,18 +16,39 @@ class Writer {
 	
 	var isFired = false
 	
-	init (mutexSemaphore: DispatchSemaphore,
-		 boxMessagesSemaphore: DispatchSemaphore,
+	let thread = DispatchQueue.global()
+	
+	init (boxMessagesSemaphore: DispatchSemaphore,
 		 boxCapacitySemaphore: DispatchSemaphore,
 		 timeToWrite: Int) {
 		
-		self.mutex = mutexSemaphore
 		self.boxMessages = boxMessagesSemaphore
 		self.boxCapacity = boxCapacitySemaphore
 		self.timeToWrite = timeToWrite
 	}
 	
-	func run () {
-		
+	func run (viewController: WriterUI) {
+		thread.async {
+			while(!self.isFired) {
+				
+				if(viewController.isBoxFull()) {
+					viewController.updateWriterToWaitingState()
+				}
+				
+				self.boxCapacity.wait()
+				//calcuar timer final para escrever
+				viewController.updateWriterToWritingState()
+				viewController.increaseBoxMessagesCounter(quantity: 1)
+				//verificar timer e esperar caso necessario
+				self.boxMessages.signal()
+				
+				viewController.updateWriterToPuttingMessagesIntoBox()
+				
+			}
+		}
+	}
+	
+	func dismissWriter() {
+		self.isFired = true
 	}
 }

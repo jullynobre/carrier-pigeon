@@ -9,7 +9,6 @@
 import Foundation
 
 class Pigeon {
-	let mutex: DispatchSemaphore
 	let boxMessages: DispatchSemaphore
 	let boxCapacity: DispatchSemaphore
 	
@@ -23,13 +22,11 @@ class Pigeon {
 	
 	let thread = DispatchQueue.global()
 	
-	init (mutexSemaphore: DispatchSemaphore,
-		 boxMessagesSemaphore: DispatchSemaphore,
+	init (boxMessagesSemaphore: DispatchSemaphore,
 		 boxCapacitySemaphore: DispatchSemaphore,
 		 pigeonCapacity: Int,
 		 timeToLoad: Int, timeToTravel: Int, timeToUnload: Int) {
 		
-		self.mutex = mutexSemaphore
 		self.boxMessages = boxMessagesSemaphore
 		self.boxCapacity = boxCapacitySemaphore
 		
@@ -45,16 +42,14 @@ class Pigeon {
 		thread.async {
 			while(!self.isFree) {
 				
-				if viewController.getBoxMessagesCounter() < self.capacity {
+				if !viewController.boxHas(quantityOfMessages: self.capacity){
 					viewController.updatePigeonToWaitingState()
 				}
 				
 				for _ in 1...self.capacity { self.boxMessages.wait() }
 				//calcuar timer final para carregar
 				viewController.updatePigeonToLoadingState()
-				self.mutex.wait()
-				viewController.increaseBoxMessagesCounter(quantity: self.capacity)
-				self.mutex.signal()
+				viewController.decreaseBoxMessagesCounter(quantity: self.capacity)
 				//verificar timer e esperar caso necessario
 				for _ in 1...self.capacity { self.boxCapacity.signal() }
 				
@@ -71,5 +66,9 @@ class Pigeon {
 				//verificar timer e esperar caso necessario
 			}
 		}
+	}
+	
+	func releasePigeon() {
+		self.isFree = true
 	}
 }
