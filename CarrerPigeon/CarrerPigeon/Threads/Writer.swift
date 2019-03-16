@@ -8,16 +8,27 @@
 
 import Foundation
 
-class User {
+class Writer {
 	let mutex: DispatchSemaphore
 	let boxMessages: DispatchSemaphore
 	let boxCapacity: DispatchSemaphore
 	
-	init(mutexSemaphore: DispatchSemaphore,
+	let timeToWrite: Int
+	
+	var isFired = false
+	
+	init (mutexSemaphore: DispatchSemaphore,
 		 boxMessagesSemaphore: DispatchSemaphore,
-		 boxCapacitySemaphore: DispatchSemaphore) {
+		 boxCapacitySemaphore: DispatchSemaphore,
+		 timeToWrite: Int) {
+		
 		self.mutex = mutexSemaphore
 		self.boxMessages = boxMessagesSemaphore
 		self.boxCapacity = boxCapacitySemaphore
+		self.timeToWrite = timeToWrite
+	}
+	
+	func run () {
+		
 	}
 }
