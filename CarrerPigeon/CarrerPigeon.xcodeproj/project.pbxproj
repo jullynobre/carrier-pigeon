@@ -12,9 +12,8 @@
 		5725D653223B17C5005E291B /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5725D651223B17C5005E291B /* Main.storyboard */; };
 		5725D655223B17C6005E291B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5725D654223B17C6005E291B /* Assets.xcassets */; };
 		5725D658223B17C6005E291B /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5725D656223B17C6005E291B /* LaunchScreen.storyboard */; };
-		5725D660223B1812005E291B /* PigeonThread.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5725D65F223B1812005E291B /* PigeonThread.swift */; };
-		5725D662223B1824005E291B /* UserThread.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5725D661223B1824005E291B /* UserThread.swift */; };
-		5725D665223B1854005E291B /* Semaphores.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5725D664223B1854005E291B /* Semaphores.swift */; };
+		5725D660223B1812005E291B /* Pigeon.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5725D65F223B1812005E291B /* Pigeon.swift */; };
+		5725D662223B1824005E291B /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5725D661223B1824005E291B /* User.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -25,9 +24,8 @@
 		5725D654223B17C6005E291B /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		5725D657223B17C6005E291B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		5725D659223B17C6005E291B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		5725D65F223B1812005E291B /* PigeonThread.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PigeonThread.swift; sourceTree = "<group>"; };
-		5725D661223B1824005E291B /* UserThread.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserThread.swift; sourceTree = "<group>"; };
-		5725D664223B1854005E291B /* Semaphores.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Semaphores.swift; sourceTree = "<group>"; };
+		5725D65F223B1812005E291B /* Pigeon.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Pigeon.swift; sourceTree = "<group>"; };
+		5725D661223B1824005E291B /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -62,7 +60,6 @@
 			children = (
 				5725D663223B1829005E291B /* Threads */,
 				5725D64D223B17C5005E291B /* AppDelegate.swift */,
-				5725D664223B1854005E291B /* Semaphores.swift */,
 				5725D64F223B17C5005E291B /* ViewController.swift */,
 				5725D651223B17C5005E291B /* Main.storyboard */,
 				5725D654223B17C6005E291B /* Assets.xcassets */,
@@ -75,8 +72,8 @@
 		5725D663223B1829005E291B /* Threads */ = {
 			isa = PBXGroup;
 			children = (
-				5725D65F223B1812005E291B /* PigeonThread.swift */,
-				5725D661223B1824005E291B /* UserThread.swift */,
+				5725D65F223B1812005E291B /* Pigeon.swift */,
+				5725D661223B1824005E291B /* User.swift */,
 			);
 			path = Threads;
 			sourceTree = "<group>";
@@ -154,9 +151,8 @@
 			files = (
 				5725D650223B17C5005E291B /* ViewController.swift in Sources */,
 				5725D64E223B17C5005E291B /* AppDelegate.swift in Sources */,
-				5725D662223B1824005E291B /* UserThread.swift in Sources */,
-				5725D665223B1854005E291B /* Semaphores.swift in Sources */,
-				5725D660223B1812005E291B /* PigeonThread.swift in Sources */,
+				5725D662223B1824005E291B /* User.swift in Sources */,
+				5725D660223B1812005E291B /* Pigeon.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
