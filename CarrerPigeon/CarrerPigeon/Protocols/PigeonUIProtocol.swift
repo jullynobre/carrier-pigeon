@@ -10,10 +10,13 @@ import Foundation
 
 protocol PigeonUI {
 	
+	func updatePigeonToWaitingState()
 	func updatePigeonToLoadingState()
 	func updatePigeonToFlingState()
 	func updatePigeonToUnloadingState()
 	func updatePigeonToFlingBackState()
 	
-	func pullBoxMessages(quantity: Int)
+	func getBoxMessagesCounter() -> Int
+	func increaseBoxMessagesCounter(quantity: Int)
+	
 }

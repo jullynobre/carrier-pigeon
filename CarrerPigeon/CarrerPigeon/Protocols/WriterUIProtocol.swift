@@ -9,5 +9,12 @@
 import Foundation
 
 protocol WriterUI {
-
+	
+	func updateWriterToWaitingState()
+	func updateWriterToWritingState()
+	func updateWriterToPuttingMessagesIntoBox()
+	
+	func getBoxMessagesCounter() -> Int
+	func decreaseBoxMessagesCounter(quantity: Int)
+	
 }

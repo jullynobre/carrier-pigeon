@@ -45,17 +45,18 @@ class Pigeon {
 		thread.async {
 			while(!self.isFree) {
 				
+				if viewController.getBoxMessagesCounter() < self.capacity {
+					viewController.updatePigeonToWaitingState()
+				}
+				
 				for _ in 1...self.capacity { self.boxMessages.wait() }
 				//calcuar timer final para carregar
-				
 				viewController.updatePigeonToLoadingState()
 				self.mutex.wait()
-				viewController.pullBoxMessages(quantity: self.capacity)
+				viewController.increaseBoxMessagesCounter(quantity: self.capacity)
 				self.mutex.signal()
-				
 				//verificar timer e esperar caso necessario
 				for _ in 1...self.capacity { self.boxCapacity.signal() }
-				
 				
 				//calcular timer para termionar a viagen
 				viewController.updatePigeonToFlingState()
