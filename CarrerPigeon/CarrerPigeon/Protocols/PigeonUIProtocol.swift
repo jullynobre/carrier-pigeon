@@ -8,7 +8,7 @@
 
 import Foundation
 
-protocol PigeonUI {
+protocol UIPigeon {
 	
 	func updatePigeonToWaitingState()
 	func updatePigeonToLoadingState()

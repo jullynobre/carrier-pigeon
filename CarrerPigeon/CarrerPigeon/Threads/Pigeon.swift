@@ -38,7 +38,7 @@ class Pigeon {
 	
 	}
 	
-	func run (viewController: PigeonUI) {
+	func run (viewController: UIPigeon) {
 		thread.async {
 			while(!self.isFree) {
 				

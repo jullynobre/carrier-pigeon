@@ -27,7 +27,7 @@ class Writer {
 		self.timeToWrite = timeToWrite
 	}
 	
-	func run (viewController: WriterUI) {
+	func run (viewController: UIWriter) {
 		thread.async {
 			while(!self.isFired) {
 				

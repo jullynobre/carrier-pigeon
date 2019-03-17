@@ -8,7 +8,7 @@
 
 import Foundation
 
-protocol WriterUI {
+protocol UIWriter {
 	
 	func updateWriterToWaitingState()
 	func updateWriterToWritingState()
