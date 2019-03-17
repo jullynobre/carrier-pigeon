@@ -14,6 +14,8 @@
 		5725D658223B17C6005E291B /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5725D656223B17C6005E291B /* LaunchScreen.storyboard */; };
 		5725D660223B1812005E291B /* Pigeon.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5725D65F223B1812005E291B /* Pigeon.swift */; };
 		5725D662223B1824005E291B /* Writer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5725D661223B1824005E291B /* Writer.swift */; };
+		572F0060223E9EFA006A79DD /* ViewController+UIWriter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 572F005F223E9EFA006A79DD /* ViewController+UIWriter.swift */; };
+		572F0062223E9F0B006A79DD /* ViewController+UIPigeon.swift in Sources */ = {isa = PBXBuildFile; fileRef = 572F0061223E9F0B006A79DD /* ViewController+UIPigeon.swift */; };
 		57B71560223D9E680014692E /* PigeonUIProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57B7155F223D9E680014692E /* PigeonUIProtocol.swift */; };
 		57B71562223D9E7E0014692E /* WriterUIProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57B71561223D9E7E0014692E /* WriterUIProtocol.swift */; };
 /* End PBXBuildFile section */
@@ -28,6 +30,8 @@
 		5725D659223B17C6005E291B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		5725D65F223B1812005E291B /* Pigeon.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Pigeon.swift; sourceTree = "<group>"; };
 		5725D661223B1824005E291B /* Writer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Writer.swift; sourceTree = "<group>"; };
+		572F005F223E9EFA006A79DD /* ViewController+UIWriter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ViewController+UIWriter.swift"; sourceTree = "<group>"; };
+		572F0061223E9F0B006A79DD /* ViewController+UIPigeon.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ViewController+UIPigeon.swift"; sourceTree = "<group>"; };
 		57B7155F223D9E680014692E /* PigeonUIProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PigeonUIProtocol.swift; sourceTree = "<group>"; };
 		57B71561223D9E7E0014692E /* WriterUIProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WriterUIProtocol.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -63,9 +67,9 @@
 			isa = PBXGroup;
 			children = (
 				57B7155E223D9E3D0014692E /* Protocols */,
+				572F005E223E9ECB006A79DD /* Controllers */,
 				5725D663223B1829005E291B /* Threads */,
 				5725D64D223B17C5005E291B /* AppDelegate.swift */,
-				5725D64F223B17C5005E291B /* ViewController.swift */,
 				5725D651223B17C5005E291B /* Main.storyboard */,
 				5725D654223B17C6005E291B /* Assets.xcassets */,
 				5725D656223B17C6005E291B /* LaunchScreen.storyboard */,
@@ -81,6 +85,16 @@
 				5725D661223B1824005E291B /* Writer.swift */,
 			);
 			path = Threads;
+			sourceTree = "<group>";
+		};
+		572F005E223E9ECB006A79DD /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				5725D64F223B17C5005E291B /* ViewController.swift */,
+				572F005F223E9EFA006A79DD /* ViewController+UIWriter.swift */,
+				572F0061223E9F0B006A79DD /* ViewController+UIPigeon.swift */,
+			);
+			path = Controllers;
 			sourceTree = "<group>";
 		};
 		57B7155E223D9E3D0014692E /* Protocols */ = {
@@ -165,8 +179,10 @@
 			files = (
 				5725D650223B17C5005E291B /* ViewController.swift in Sources */,
 				57B71562223D9E7E0014692E /* WriterUIProtocol.swift in Sources */,
+				572F0062223E9F0B006A79DD /* ViewController+UIPigeon.swift in Sources */,
 				5725D64E223B17C5005E291B /* AppDelegate.swift in Sources */,
 				5725D662223B1824005E291B /* Writer.swift in Sources */,
+				572F0060223E9EFA006A79DD /* ViewController+UIWriter.swift in Sources */,
 				5725D660223B1812005E291B /* Pigeon.swift in Sources */,
 				57B71560223D9E680014692E /* PigeonUIProtocol.swift in Sources */,
 			);

@@ -12,9 +12,9 @@ protocol UIPigeon {
 	
 	func updatePigeonToWaitingState()
 	func updatePigeonToLoadingState()
-	func updatePigeonToFlingState()
+	func updatePigeonToFlyingState()
 	func updatePigeonToUnloadingState()
-	func updatePigeonToFlingBackState()
+	func updatePigeonToFlyingBackState()
 	
 	func boxHas(quantityOfMessages: Int) -> Bool
 	func decreaseBoxMessagesCounter(quantity: Int)

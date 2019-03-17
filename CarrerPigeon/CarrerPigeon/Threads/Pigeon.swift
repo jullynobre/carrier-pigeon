@@ -54,7 +54,7 @@ class Pigeon {
 				for _ in 1...self.capacity { self.boxCapacity.signal() }
 				
 				//calcular timer para termionar a viagen
-				viewController.updatePigeonToFlingState()
+				viewController.updatePigeonToFlyingState()
 				//verificar timer e esperar caso necessario
 				
 				//calcular timer para descarregar
@@ -62,7 +62,7 @@ class Pigeon {
 				//verificar timer e esperar caso necessario
 				
 				//calcular timer para viajar de volta
-				viewController.updatePigeonToFlingBackState()
+				viewController.updatePigeonToFlyingBackState()
 				//verificar timer e esperar caso necessario
 			}
 		}
