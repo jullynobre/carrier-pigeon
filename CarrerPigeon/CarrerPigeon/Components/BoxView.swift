@@ -38,6 +38,14 @@ class BoxView: UIView {
 		addSubview(contentView)
 		contentView.frame = self.bounds
 		contentView.autoresizingMask = [.flexibleHeight, .flexibleWidth]
+        
+        configureProgressBar()
 	}
-
+    
+    func configureProgressBar() {
+        self.progressBar.transform = CGAffineTransform(scaleX: 1, y: 5)
+        
+        self.progressBar.layer.cornerRadius = 5.0
+        self.progressBar.clipsToBounds = true
+    }
 }

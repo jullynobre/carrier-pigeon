@@ -19,7 +19,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="PBx-6H-jbE" customClass="BoxView" customModule="CarrerPigeon" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="169" width="375" height="100"/>
+                                <rect key="frame" x="0.0" y="169" width="375" height="125"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </view>
@@ -33,4 +33,5 @@
             <point key="canvasLocation" x="136.80000000000001" y="133.5832083958021"/>
         </scene>
     </scenes>
+    <color key="tintColor" red="0.53944705309999996" green="0.3837452529" blue="0.22368320459999999" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
 </document>
