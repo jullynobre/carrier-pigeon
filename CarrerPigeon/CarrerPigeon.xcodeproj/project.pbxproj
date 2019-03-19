@@ -16,6 +16,8 @@
 		5725D662223B1824005E291B /* Writer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5725D661223B1824005E291B /* Writer.swift */; };
 		572F0060223E9EFA006A79DD /* ViewController+UIWriter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 572F005F223E9EFA006A79DD /* ViewController+UIWriter.swift */; };
 		572F0062223E9F0B006A79DD /* ViewController+UIPigeon.swift in Sources */ = {isa = PBXBuildFile; fileRef = 572F0061223E9F0B006A79DD /* ViewController+UIPigeon.swift */; };
+		575AE86922406F70005379AC /* BoxView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 575AE86822406F70005379AC /* BoxView.xib */; };
+		575AE86B22406F8A005379AC /* BoxView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 575AE86A22406F8A005379AC /* BoxView.swift */; };
 		57B71560223D9E680014692E /* PigeonUIProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57B7155F223D9E680014692E /* PigeonUIProtocol.swift */; };
 		57B71562223D9E7E0014692E /* WriterUIProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57B71561223D9E7E0014692E /* WriterUIProtocol.swift */; };
 /* End PBXBuildFile section */
@@ -32,6 +34,8 @@
 		5725D661223B1824005E291B /* Writer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Writer.swift; sourceTree = "<group>"; };
 		572F005F223E9EFA006A79DD /* ViewController+UIWriter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ViewController+UIWriter.swift"; sourceTree = "<group>"; };
 		572F0061223E9F0B006A79DD /* ViewController+UIPigeon.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ViewController+UIPigeon.swift"; sourceTree = "<group>"; };
+		575AE86822406F70005379AC /* BoxView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = BoxView.xib; sourceTree = "<group>"; };
+		575AE86A22406F8A005379AC /* BoxView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BoxView.swift; sourceTree = "<group>"; };
 		57B7155F223D9E680014692E /* PigeonUIProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PigeonUIProtocol.swift; sourceTree = "<group>"; };
 		57B71561223D9E7E0014692E /* WriterUIProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WriterUIProtocol.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -66,6 +70,7 @@
 		5725D64C223B17C5005E291B /* CarrerPigeon */ = {
 			isa = PBXGroup;
 			children = (
+				575AE86722406F4A005379AC /* Components */,
 				57B7155E223D9E3D0014692E /* Protocols */,
 				572F005E223E9ECB006A79DD /* Controllers */,
 				5725D663223B1829005E291B /* Threads */,
@@ -95,6 +100,15 @@
 				572F0061223E9F0B006A79DD /* ViewController+UIPigeon.swift */,
 			);
 			path = Controllers;
+			sourceTree = "<group>";
+		};
+		575AE86722406F4A005379AC /* Components */ = {
+			isa = PBXGroup;
+			children = (
+				575AE86822406F70005379AC /* BoxView.xib */,
+				575AE86A22406F8A005379AC /* BoxView.swift */,
+			);
+			path = Components;
 			sourceTree = "<group>";
 		};
 		57B7155E223D9E3D0014692E /* Protocols */ = {
@@ -164,6 +178,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				575AE86922406F70005379AC /* BoxView.xib in Resources */,
 				5725D658223B17C6005E291B /* LaunchScreen.storyboard in Resources */,
 				5725D655223B17C6005E291B /* Assets.xcassets in Resources */,
 				5725D653223B17C5005E291B /* Main.storyboard in Resources */,
@@ -185,6 +200,7 @@
 				572F0060223E9EFA006A79DD /* ViewController+UIWriter.swift in Sources */,
 				5725D660223B1812005E291B /* Pigeon.swift in Sources */,
 				57B71560223D9E680014692E /* PigeonUIProtocol.swift in Sources */,
+				575AE86B22406F8A005379AC /* BoxView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
