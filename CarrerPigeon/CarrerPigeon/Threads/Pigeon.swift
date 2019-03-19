@@ -47,23 +47,33 @@ class Pigeon {
 				}
 				
 				for _ in 1...self.capacity { self.boxMessages.wait() }
-				//calcuar timer final para carregar
+                
+                var endAction = Date().addingTimeInterval(Double(self.timeToLoad))
+                
 				viewController.updatePigeonToLoadingState()
 				viewController.decreaseBoxMessagesCounter(quantity: self.capacity)
-				//verificar timer e esperar caso necessario
+                
+                while(Date() < endAction) {sleep(<#T##UInt32#>)}
+                
 				for _ in 1...self.capacity { self.boxCapacity.signal() }
 				
-				//calcular timer para termionar a viagen
+                endAction = Date().addingTimeInterval(Double(self.timeToTravel))
+                
 				viewController.updatePigeonToFlingState()
-				//verificar timer e esperar caso necessario
+                
+                while(Date() < endAction){sleep(1)}
 				
-				//calcular timer para descarregar
+                endAction = Date().addingTimeInterval(Double(self.timeToUnload))
+                
 				viewController.updatePigeonToUnloadingState()
-				//verificar timer e esperar caso necessario
 				
-				//calcular timer para viajar de volta
+                while(Date() < endAction) {sleep(1)}
+				
+				endAction = Date().addingTimeInterval(Double(self.timeToTravel))
+                
 				viewController.updatePigeonToFlingBackState()
-				//verificar timer e esperar caso necessario
+				
+                while(Date() < endAction) {sleep(1)}
 			}
 		}
 	}

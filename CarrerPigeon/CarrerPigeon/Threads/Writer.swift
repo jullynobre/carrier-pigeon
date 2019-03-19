@@ -36,10 +36,14 @@ class Writer {
 				}
 				
 				self.boxCapacity.wait()
-				//calcuar timer final para escrever
+                
+				let endWrintig = Date().addingTimeInterval(Double(self.timeToWrite))
+                
 				viewController.updateWriterToWritingState()
 				viewController.increaseBoxMessagesCounter(quantity: 1)
-				//verificar timer e esperar caso necessario
+                
+                while (Date() < endWrintig) {sleep(1)}
+                
 				self.boxMessages.signal()
 				
 				viewController.updateWriterToPuttingMessagesIntoBox()
