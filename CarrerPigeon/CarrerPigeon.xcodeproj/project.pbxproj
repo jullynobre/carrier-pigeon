@@ -20,6 +20,10 @@
 		575AE86B22406F8A005379AC /* BoxView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 575AE86A22406F8A005379AC /* BoxView.swift */; };
 		57B71560223D9E680014692E /* PigeonUIProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57B7155F223D9E680014692E /* PigeonUIProtocol.swift */; };
 		57B71562223D9E7E0014692E /* WriterUIProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57B71561223D9E7E0014692E /* WriterUIProtocol.swift */; };
+		57F4ED122242FC11005B0AE3 /* WritersView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 57F4ED112242FC11005B0AE3 /* WritersView.xib */; };
+		57F4ED142242FC27005B0AE3 /* WritersView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57F4ED132242FC27005B0AE3 /* WritersView.swift */; };
+		57F4ED172242FF3D005B0AE3 /* WriterCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57F4ED152242FF3D005B0AE3 /* WriterCollectionViewCell.swift */; };
+		57F4ED182242FF3D005B0AE3 /* WriterCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 57F4ED162242FF3D005B0AE3 /* WriterCollectionViewCell.xib */; };
 		AC190174224178C700AB477C /* PigeonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC190173224178C700AB477C /* PigeonView.swift */; };
 		AC190176224178D200AB477C /* PigeonView.xib in Resources */ = {isa = PBXBuildFile; fileRef = AC190175224178D200AB477C /* PigeonView.xib */; };
 /* End PBXBuildFile section */
@@ -40,6 +44,10 @@
 		575AE86A22406F8A005379AC /* BoxView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BoxView.swift; sourceTree = "<group>"; };
 		57B7155F223D9E680014692E /* PigeonUIProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PigeonUIProtocol.swift; sourceTree = "<group>"; };
 		57B71561223D9E7E0014692E /* WriterUIProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WriterUIProtocol.swift; sourceTree = "<group>"; };
+		57F4ED112242FC11005B0AE3 /* WritersView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = WritersView.xib; sourceTree = "<group>"; };
+		57F4ED132242FC27005B0AE3 /* WritersView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WritersView.swift; sourceTree = "<group>"; };
+		57F4ED152242FF3D005B0AE3 /* WriterCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WriterCollectionViewCell.swift; sourceTree = "<group>"; };
+		57F4ED162242FF3D005B0AE3 /* WriterCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = WriterCollectionViewCell.xib; sourceTree = "<group>"; };
 		AC190173224178C700AB477C /* PigeonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PigeonView.swift; sourceTree = "<group>"; };
 		AC190175224178D200AB477C /* PigeonView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PigeonView.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -111,8 +119,12 @@
 			children = (
 				575AE86822406F70005379AC /* BoxView.xib */,
 				575AE86A22406F8A005379AC /* BoxView.swift */,
-				AC190173224178C700AB477C /* PigeonView.swift */,
 				AC190175224178D200AB477C /* PigeonView.xib */,
+				AC190173224178C700AB477C /* PigeonView.swift */,
+				57F4ED112242FC11005B0AE3 /* WritersView.xib */,
+				57F4ED132242FC27005B0AE3 /* WritersView.swift */,
+				57F4ED152242FF3D005B0AE3 /* WriterCollectionViewCell.swift */,
+				57F4ED162242FF3D005B0AE3 /* WriterCollectionViewCell.xib */,
 			);
 			path = Components;
 			sourceTree = "<group>";
@@ -187,8 +199,10 @@
 				575AE86922406F70005379AC /* BoxView.xib in Resources */,
 				AC190176224178D200AB477C /* PigeonView.xib in Resources */,
 				5725D658223B17C6005E291B /* LaunchScreen.storyboard in Resources */,
+				57F4ED182242FF3D005B0AE3 /* WriterCollectionViewCell.xib in Resources */,
 				5725D655223B17C6005E291B /* Assets.xcassets in Resources */,
 				5725D653223B17C5005E291B /* Main.storyboard in Resources */,
+				57F4ED122242FC11005B0AE3 /* WritersView.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -204,7 +218,9 @@
 				572F0062223E9F0B006A79DD /* ViewController+UIPigeon.swift in Sources */,
 				5725D64E223B17C5005E291B /* AppDelegate.swift in Sources */,
 				AC190174224178C700AB477C /* PigeonView.swift in Sources */,
+				57F4ED172242FF3D005B0AE3 /* WriterCollectionViewCell.swift in Sources */,
 				5725D662223B1824005E291B /* Writer.swift in Sources */,
+				57F4ED142242FC27005B0AE3 /* WritersView.swift in Sources */,
 				572F0060223E9EFA006A79DD /* ViewController+UIWriter.swift in Sources */,
 				5725D660223B1812005E291B /* Pigeon.swift in Sources */,
 				57B71560223D9E680014692E /* PigeonUIProtocol.swift in Sources */,
