@@ -13,7 +13,9 @@ class PigeonView: UIView {
     @IBOutlet var contentView: UIView!
     
     @IBOutlet weak var landscapeImage: UIImageView!
-    
+	
+	@IBOutlet weak var pigeonImage: UIImageView!
+	
     override init(frame: CGRect) {
         super.init(frame: frame)
         commonInit()
@@ -31,6 +33,7 @@ class PigeonView: UIView {
         contentView.autoresizingMask = [.flexibleHeight, .flexibleWidth]
         
         self.landscapeImage.layer.cornerRadius = 10.0
+		self.landscapeImage.layer.masksToBounds = true
     }
 
 }
