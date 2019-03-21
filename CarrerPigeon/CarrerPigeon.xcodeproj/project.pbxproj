@@ -117,14 +117,9 @@
 		575AE86722406F4A005379AC /* Components */ = {
 			isa = PBXGroup;
 			children = (
-				575AE86822406F70005379AC /* BoxView.xib */,
-				575AE86A22406F8A005379AC /* BoxView.swift */,
-				AC190175224178D200AB477C /* PigeonView.xib */,
-				AC190173224178C700AB477C /* PigeonView.swift */,
-				57F4ED112242FC11005B0AE3 /* WritersView.xib */,
-				57F4ED132242FC27005B0AE3 /* WritersView.swift */,
-				57F4ED152242FF3D005B0AE3 /* WriterCollectionViewCell.swift */,
-				57F4ED162242FF3D005B0AE3 /* WriterCollectionViewCell.xib */,
+				57F4ED1B224324D2005B0AE3 /* Writers */,
+				57F4ED1A224324C4005B0AE3 /* Pigeon */,
+				57F4ED19224324B8005B0AE3 /* Box */,
 			);
 			path = Components;
 			sourceTree = "<group>";
@@ -136,6 +131,35 @@
 				57B71561223D9E7E0014692E /* WriterUIProtocol.swift */,
 			);
 			path = Protocols;
+			sourceTree = "<group>";
+		};
+		57F4ED19224324B8005B0AE3 /* Box */ = {
+			isa = PBXGroup;
+			children = (
+				575AE86822406F70005379AC /* BoxView.xib */,
+				575AE86A22406F8A005379AC /* BoxView.swift */,
+			);
+			path = Box;
+			sourceTree = "<group>";
+		};
+		57F4ED1A224324C4005B0AE3 /* Pigeon */ = {
+			isa = PBXGroup;
+			children = (
+				AC190175224178D200AB477C /* PigeonView.xib */,
+				AC190173224178C700AB477C /* PigeonView.swift */,
+			);
+			path = Pigeon;
+			sourceTree = "<group>";
+		};
+		57F4ED1B224324D2005B0AE3 /* Writers */ = {
+			isa = PBXGroup;
+			children = (
+				57F4ED112242FC11005B0AE3 /* WritersView.xib */,
+				57F4ED132242FC27005B0AE3 /* WritersView.swift */,
+				57F4ED152242FF3D005B0AE3 /* WriterCollectionViewCell.swift */,
+				57F4ED162242FF3D005B0AE3 /* WriterCollectionViewCell.xib */,
+			);
+			path = Writers;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
