@@ -56,7 +56,7 @@ class Pigeon {
                 while(Date() < endAction) {sleep(<#T##UInt32#>)}
                 
 				for _ in 1...self.capacity { self.boxCapacity.signal() }
-				
+        
                 endAction = Date().addingTimeInterval(Double(self.timeToTravel))
                 
 				viewController.updatePigeonToFlingState()
@@ -66,7 +66,7 @@ class Pigeon {
                 endAction = Date().addingTimeInterval(Double(self.timeToUnload))
                 
 				viewController.updatePigeonToUnloadingState()
-				
+			
                 while(Date() < endAction) {sleep(1)}
 				
 				endAction = Date().addingTimeInterval(Double(self.timeToTravel))
