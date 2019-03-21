@@ -53,13 +53,13 @@ class Pigeon {
 				viewController.updatePigeonToLoadingState()
 				viewController.decreaseBoxMessagesCounter(quantity: self.capacity)
                 
-                while(Date() < endAction) {sleep(<#T##UInt32#>)}
+                //while(Date() < endAction) {sleep(<#T##UInt32#>)}
                 
 				for _ in 1...self.capacity { self.boxCapacity.signal() }
         
                 endAction = Date().addingTimeInterval(Double(self.timeToTravel))
                 
-				viewController.updatePigeonToFlingState()
+				viewController.updatePigeonToFlyingState()
                 
                 while(Date() < endAction){sleep(1)}
 				
@@ -71,7 +71,7 @@ class Pigeon {
 				
 				endAction = Date().addingTimeInterval(Double(self.timeToTravel))
                 
-				viewController.updatePigeonToFlingBackState()
+				viewController.updatePigeonToFlyingBackState()
 				
                 while(Date() < endAction) {sleep(1)}
 			}
