@@ -45,6 +45,11 @@
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
                     <navigationItem key="navigationItem" title="Theads" id="MBs-0j-Ucl"/>
+                    <connections>
+                        <outlet property="boxView" destination="lpd-Ww-m4n" id="XGP-Qm-awc"/>
+                        <outlet property="pigeonView" destination="icJ-fe-pO5" id="YLz-VV-BL1"/>
+                        <outlet property="writersView" destination="ZqN-LV-7Nx" id="Dt9-oa-1Bf"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
