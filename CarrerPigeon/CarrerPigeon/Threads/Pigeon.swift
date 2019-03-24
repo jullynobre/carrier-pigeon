@@ -46,14 +46,14 @@ class Pigeon {
 //                }
 //
 //                for _ in 1...self.capacity { self.boxMessages.wait() }
-//
+
                 var endAction = Date().addingTimeInterval(Double(self.timeToLoad))
-//
-//                viewController.updatePigeonToLoadingState()
+
+                viewController.updatePigeonToLoadingState()
 //                viewController.decreaseBoxMessagesCounter(quantity: self.capacity)
-//
+
                 while(Date() < endAction) {}
-//
+
 //                for _ in 1...self.capacity { self.boxCapacity.signal() }
         
                 endAction = Date().addingTimeInterval(Double(self.timeToTravel))
@@ -82,7 +82,7 @@ class Pigeon {
 	}
     
     func flapWings(viewController: UIPigeon) {
-        let timeToFlap = Date().addingTimeInterval(0.75)
+        let timeToFlap = Date().addingTimeInterval(0.2)
         while(Date() < timeToFlap) {}
         
         DispatchQueue.main.async{
