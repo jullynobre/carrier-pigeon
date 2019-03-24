@@ -21,8 +21,6 @@ class ViewController: UIViewController {
     var pigeonImageAnimationIndex = 0
     let pigeonImagesNames = ["pigeon-up", "pigeon-down"]
 	
-	var writers: [Writer] = []
-	
 	override func viewDidLoad() {
 		super.viewDidLoad()
 		boxMessagesSemaphore = DispatchSemaphore(value: 0)
