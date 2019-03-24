@@ -15,7 +15,8 @@ class PigeonView: UIView {
     @IBOutlet weak var landscapeImage: UIImageView!
 	
 	@IBOutlet weak var pigeonImage: UIImageView!
-	
+    @IBOutlet weak var pigeonStatusLabel: UILabel!
+    
     override init(frame: CGRect) {
         super.init(frame: frame)
         commonInit()

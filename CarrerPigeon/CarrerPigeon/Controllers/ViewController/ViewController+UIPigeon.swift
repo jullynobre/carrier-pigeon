@@ -11,23 +11,33 @@ import UIKit
 
 extension ViewController: UIPigeon {
 	func updatePigeonToWaitingState() {
-		print("P Waiting")
+        DispatchQueue.main.async{
+            self.pigeonView.pigeonStatusLabel.text = "ESPERANDO"
+        }
 	}
 	
 	func updatePigeonToLoadingState() {
-		print("P Loading")
+        DispatchQueue.main.async{
+            self.pigeonView.pigeonStatusLabel.text = "CARREGANDO"
+        }
 	}
 	
 	func updatePigeonToFlyingState() {
-		print("P Flying")
+        DispatchQueue.main.async{
+            self.pigeonView.pigeonStatusLabel.text = "VIAJANDO"
+        }
 	}
 	
 	func updatePigeonToUnloadingState() {
-		print("P Unloading")
+        DispatchQueue.main.async{
+            self.pigeonView.pigeonStatusLabel.text = "DESCARREGANDO"
+        }
 	}
 	
 	func updatePigeonToFlyingBackState() {
-		print("P Flying back")
+        DispatchQueue.main.async{
+            self.pigeonView.pigeonStatusLabel.text = "VOLTANDO"
+        }
 	}
 	
 	func boxHas(quantityOfMessages: Int) -> Bool {
