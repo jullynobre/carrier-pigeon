@@ -36,7 +36,7 @@
                                 <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </view>
                             <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ZqN-LV-7Nx" customClass="WritersView" customModule="CarrerPigeon" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="472" width="375" height="160"/>
+                                <rect key="frame" x="0.0" y="472" width="375" height="180"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </view>
@@ -65,14 +65,14 @@
                                 <rect key="frame" x="337" y="144" width="22" height="22"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <connections>
-                                    <segue destination="xe7-Ag-GIL" kind="presentation" id="dFf-ec-JCg"/>
+                                    <segue destination="xe7-Ag-GIL" kind="presentation" identifier="PigeonModalDelegate" id="dFf-ec-JCg"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="contactAdd" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Uh2-SX-HIz">
                                 <rect key="frame" x="337" y="442" width="22" height="22"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <connections>
-                                    <segue destination="wDc-vu-p1q" kind="presentation" id="cR0-DX-v8I"/>
+                                    <segue destination="wDc-vu-p1q" kind="presentation" identifier="WriterModalDelegate" id="cR0-DX-v8I"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Idu-Be-G5g">
@@ -80,7 +80,7 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="configurar"/>
                                 <connections>
-                                    <segue destination="GRB-xV-8vz" kind="presentation" id="F5v-To-KtW"/>
+                                    <segue destination="GRB-xV-8vz" kind="presentation" identifier="BoxModalDelegate" id="F5v-To-KtW"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -93,16 +93,17 @@
                     <connections>
                         <outlet property="boxView" destination="lpd-Ww-m4n" id="XGP-Qm-awc"/>
                         <outlet property="pigeonView" destination="icJ-fe-pO5" id="YLz-VV-BL1"/>
+                        <outlet property="writersView" destination="ZqN-LV-7Nx" id="gYA-AB-fPU"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1028" y="126"/>
         </scene>
-        <!--View Controller-->
+        <!--Pigeon Modal View Controller-->
         <scene sceneID="GWY-0D-qZh">
             <objects>
-                <viewController id="xe7-Ag-GIL" sceneMemberID="viewController">
+                <viewController id="xe7-Ag-GIL" customClass="PigeonModalViewController" customModule="CarrerPigeon" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="m1W-UM-bId">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -111,6 +112,9 @@
                                 <rect key="frame" x="16" y="32" width="41" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Voltar"/>
+                                <connections>
+                                    <action selector="didTapBackButton:" destination="xe7-Ag-GIL" eventType="touchUpInside" id="GLt-Ch-J4d"/>
+                                </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Dados do pombo" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QB0-We-etD">
                                 <rect key="frame" x="16" y="78" width="236" height="36"/>
@@ -123,6 +127,9 @@
                                 <rect key="frame" x="322" y="32" width="37" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Done"/>
+                                <connections>
+                                    <action selector="didTapDoneButton:" destination="xe7-Ag-GIL" eventType="touchUpInside" id="9p8-BY-CCt"/>
+                                </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="CAPACIDADE DO POMBO" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iUA-jI-ze9">
                                 <rect key="frame" x="16" y="134" width="134" height="14"/>
@@ -184,6 +191,12 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <viewLayoutGuide key="safeArea" id="XWz-NG-cmP"/>
                     </view>
+                    <connections>
+                        <outlet property="capacityTextField" destination="6z7-86-Hho" id="oIE-kX-5is"/>
+                        <outlet property="timeToFlyTextField" destination="LDR-Zs-zOd" id="OpI-KE-rU1"/>
+                        <outlet property="timeToLoadTextField" destination="qbz-zZ-ckB" id="k6a-Bv-hW5"/>
+                        <outlet property="timeToUnloadTextField" destination="J5w-Y9-aHt" id="QMN-X6-7nJ"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="g7k-bF-1oP" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -207,10 +220,10 @@
             </objects>
             <point key="canvasLocation" x="262" y="127"/>
         </scene>
-        <!--View Controller-->
+        <!--Box Modal View Controller-->
         <scene sceneID="OpU-sE-JZ5">
             <objects>
-                <viewController id="GRB-xV-8vz" sceneMemberID="viewController">
+                <viewController id="GRB-xV-8vz" customClass="BoxModalViewController" customModule="CarrerPigeon" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="CMN-73-e36">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -219,6 +232,9 @@
                                 <rect key="frame" x="16" y="32" width="41" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Voltar"/>
+                                <connections>
+                                    <action selector="didTapBackButton:" destination="GRB-xV-8vz" eventType="touchUpInside" id="dOj-ii-otj"/>
+                                </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Dados da caixa" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="IV8-9K-bLc">
                                 <rect key="frame" x="16" y="78" width="212" height="36"/>
@@ -231,6 +247,9 @@
                                 <rect key="frame" x="322" y="32" width="37" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Done"/>
+                                <connections>
+                                    <action selector="didTapDoneButton:" destination="GRB-xV-8vz" eventType="touchUpInside" id="PtO-5b-AE9"/>
+                                </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="QUANTIDADE DE MENSAGENS QUE PODEM SER ARMAZENADAS NA CAIXA POSTAL" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="31b-Mu-zk6">
                                 <rect key="frame" x="16" y="134" width="343" height="34"/>
@@ -250,15 +269,18 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <viewLayoutGuide key="safeArea" id="het-mV-JNm"/>
                     </view>
+                    <connections>
+                        <outlet property="capacityTextField" destination="Pqa-v7-j1f" id="xH8-V0-aaR"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="f3k-fc-9vJ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="2631" y="125"/>
         </scene>
-        <!--View Controller-->
+        <!--Writer Modal View Controller-->
         <scene sceneID="1OU-PM-jSc">
             <objects>
-                <viewController id="wDc-vu-p1q" sceneMemberID="viewController">
+                <viewController id="wDc-vu-p1q" customClass="WriterModalViewController" customModule="CarrerPigeon" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="2CE-4I-465">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -267,6 +289,9 @@
                                 <rect key="frame" x="16" y="32" width="41" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Voltar"/>
+                                <connections>
+                                    <action selector="didTapBackButton:" destination="wDc-vu-p1q" eventType="touchUpInside" id="3yp-A7-TLH"/>
+                                </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Dados do escritor" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lHL-Yu-n3k">
                                 <rect key="frame" x="16" y="78" width="247" height="36"/>
@@ -279,6 +304,9 @@
                                 <rect key="frame" x="322" y="32" width="37" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Done"/>
+                                <connections>
+                                    <action selector="didTapLoadButton:" destination="wDc-vu-p1q" eventType="touchUpInside" id="ADX-M7-aOs"/>
+                                </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="IDENTIFICADOR" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="diY-np-MsI">
                                 <rect key="frame" x="16" y="134" width="85" height="14"/>
@@ -312,6 +340,10 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <viewLayoutGuide key="safeArea" id="VMW-mP-hZY"/>
                     </view>
+                    <connections>
+                        <outlet property="idTextField" destination="7G6-Jc-G2r" id="fYA-yZ-RO6"/>
+                        <outlet property="timeToWriteTextField" destination="32l-jQ-QRX" id="h9g-ab-Fp7"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="lqt-bg-pLs" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

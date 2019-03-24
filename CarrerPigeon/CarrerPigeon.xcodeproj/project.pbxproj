@@ -16,6 +16,11 @@
 		5725D662223B1824005E291B /* Writer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5725D661223B1824005E291B /* Writer.swift */; };
 		572F0060223E9EFA006A79DD /* ViewController+UIWriter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 572F005F223E9EFA006A79DD /* ViewController+UIWriter.swift */; };
 		572F0062223E9F0B006A79DD /* ViewController+UIPigeon.swift in Sources */ = {isa = PBXBuildFile; fileRef = 572F0061223E9F0B006A79DD /* ViewController+UIPigeon.swift */; };
+		573D986E2248088C00E00187 /* PigeonModalViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 573D986D2248088C00E00187 /* PigeonModalViewController.swift */; };
+		573D98702248089A00E00187 /* WriterModalViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 573D986F2248089A00E00187 /* WriterModalViewController.swift */; };
+		573D9872224808A800E00187 /* BoxModalViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 573D9871224808A800E00187 /* BoxModalViewController.swift */; };
+		573D987B2248125400E00187 /* ModalDelgates.swift in Sources */ = {isa = PBXBuildFile; fileRef = 573D987A2248125400E00187 /* ModalDelgates.swift */; };
+		573D987D22481C0B00E00187 /* ViewController+ModalDelegates.swift in Sources */ = {isa = PBXBuildFile; fileRef = 573D987C22481C0B00E00187 /* ViewController+ModalDelegates.swift */; };
 		575AE86922406F70005379AC /* BoxView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 575AE86822406F70005379AC /* BoxView.xib */; };
 		575AE86B22406F8A005379AC /* BoxView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 575AE86A22406F8A005379AC /* BoxView.swift */; };
 		57B71560223D9E680014692E /* PigeonUIProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57B7155F223D9E680014692E /* PigeonUIProtocol.swift */; };
@@ -40,6 +45,11 @@
 		5725D661223B1824005E291B /* Writer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Writer.swift; sourceTree = "<group>"; };
 		572F005F223E9EFA006A79DD /* ViewController+UIWriter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ViewController+UIWriter.swift"; sourceTree = "<group>"; };
 		572F0061223E9F0B006A79DD /* ViewController+UIPigeon.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ViewController+UIPigeon.swift"; sourceTree = "<group>"; };
+		573D986D2248088C00E00187 /* PigeonModalViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PigeonModalViewController.swift; sourceTree = "<group>"; };
+		573D986F2248089A00E00187 /* WriterModalViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WriterModalViewController.swift; sourceTree = "<group>"; };
+		573D9871224808A800E00187 /* BoxModalViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BoxModalViewController.swift; sourceTree = "<group>"; };
+		573D987A2248125400E00187 /* ModalDelgates.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModalDelgates.swift; sourceTree = "<group>"; };
+		573D987C22481C0B00E00187 /* ViewController+ModalDelegates.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ViewController+ModalDelegates.swift"; sourceTree = "<group>"; };
 		575AE86822406F70005379AC /* BoxView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = BoxView.xib; sourceTree = "<group>"; };
 		575AE86A22406F8A005379AC /* BoxView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BoxView.swift; sourceTree = "<group>"; };
 		57B7155F223D9E680014692E /* PigeonUIProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PigeonUIProtocol.swift; sourceTree = "<group>"; };
@@ -107,11 +117,31 @@
 		572F005E223E9ECB006A79DD /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
-				5725D64F223B17C5005E291B /* ViewController.swift */,
-				572F005F223E9EFA006A79DD /* ViewController+UIWriter.swift */,
-				572F0061223E9F0B006A79DD /* ViewController+UIPigeon.swift */,
+				573D987F2248236700E00187 /* ViewController */,
+				573D987E2248235300E00187 /* ModalControllers */,
 			);
 			path = Controllers;
+			sourceTree = "<group>";
+		};
+		573D987E2248235300E00187 /* ModalControllers */ = {
+			isa = PBXGroup;
+			children = (
+				573D986D2248088C00E00187 /* PigeonModalViewController.swift */,
+				573D986F2248089A00E00187 /* WriterModalViewController.swift */,
+				573D9871224808A800E00187 /* BoxModalViewController.swift */,
+			);
+			path = ModalControllers;
+			sourceTree = "<group>";
+		};
+		573D987F2248236700E00187 /* ViewController */ = {
+			isa = PBXGroup;
+			children = (
+				572F005F223E9EFA006A79DD /* ViewController+UIWriter.swift */,
+				572F0061223E9F0B006A79DD /* ViewController+UIPigeon.swift */,
+				573D987C22481C0B00E00187 /* ViewController+ModalDelegates.swift */,
+				5725D64F223B17C5005E291B /* ViewController.swift */,
+			);
+			path = ViewController;
 			sourceTree = "<group>";
 		};
 		575AE86722406F4A005379AC /* Components */ = {
@@ -129,6 +159,7 @@
 			children = (
 				57B7155F223D9E680014692E /* PigeonUIProtocol.swift */,
 				57B71561223D9E7E0014692E /* WriterUIProtocol.swift */,
+				573D987A2248125400E00187 /* ModalDelgates.swift */,
 			);
 			path = Protocols;
 			sourceTree = "<group>";
@@ -239,15 +270,20 @@
 			files = (
 				5725D650223B17C5005E291B /* ViewController.swift in Sources */,
 				57B71562223D9E7E0014692E /* WriterUIProtocol.swift in Sources */,
+				573D987B2248125400E00187 /* ModalDelgates.swift in Sources */,
 				572F0062223E9F0B006A79DD /* ViewController+UIPigeon.swift in Sources */,
 				5725D64E223B17C5005E291B /* AppDelegate.swift in Sources */,
 				AC190174224178C700AB477C /* PigeonView.swift in Sources */,
 				57F4ED172242FF3D005B0AE3 /* WriterCollectionViewCell.swift in Sources */,
 				5725D662223B1824005E291B /* Writer.swift in Sources */,
 				57F4ED142242FC27005B0AE3 /* WritersView.swift in Sources */,
+				573D9872224808A800E00187 /* BoxModalViewController.swift in Sources */,
 				572F0060223E9EFA006A79DD /* ViewController+UIWriter.swift in Sources */,
+				573D987D22481C0B00E00187 /* ViewController+ModalDelegates.swift in Sources */,
+				573D98702248089A00E00187 /* WriterModalViewController.swift in Sources */,
 				5725D660223B1812005E291B /* Pigeon.swift in Sources */,
 				57B71560223D9E680014692E /* PigeonUIProtocol.swift in Sources */,
+				573D986E2248088C00E00187 /* PigeonModalViewController.swift in Sources */,
 				575AE86B22406F8A005379AC /* BoxView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
