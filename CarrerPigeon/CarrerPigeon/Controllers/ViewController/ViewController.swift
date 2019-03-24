@@ -22,6 +22,8 @@ class ViewController: UIViewController {
 	@IBOutlet weak var configureBoxButton: UIButton!
 	@IBOutlet weak var addWriterButton: UIButton!
 	
+	@IBOutlet weak var runButton: UIBarButtonItem!
+	
 	var pigeonImageAnimationIndex = 0
     let pigeonImagesNames = ["pigeon-up", "pigeon-down"]
 	
@@ -47,5 +49,6 @@ class ViewController: UIViewController {
 	func disableButtons() {
 		self.addPigeonButton.isEnabled = false
 		self.addWriterButton.isEnabled = false
+		self.runButton.isEnabled = false
 	}
 }
