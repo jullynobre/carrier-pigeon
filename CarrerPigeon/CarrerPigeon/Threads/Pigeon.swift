@@ -47,7 +47,7 @@ class Pigeon {
                 viewController.updatePigeonToLoadingState()
 //                viewController.decreaseBoxMessagesCounter(quantity: self.capacity)
 
-                while(Date() < endAction) {}
+                while(Date() < endAction) {self.stepLabelLoading(viewController: viewController)}
 
 //                for _ in 1...self.capacity { self.boxCapacity.signal() }
         
@@ -61,7 +61,7 @@ class Pigeon {
                 
 				viewController.updatePigeonToUnloadingState()
 			
-                while(Date() < endAction) {}
+                while(Date() < endAction) {self.stepLabelLoading(viewController: viewController)}
 				
 				endAction = Date().addingTimeInterval(Double(self.timeToTravel))
                 
@@ -82,6 +82,15 @@ class Pigeon {
         
         DispatchQueue.main.async{
             viewController.flapWings()
+        }
+    }
+    
+    func stepLabelLoading(viewController: UIPigeon) {
+        let timeToFlap = Date().addingTimeInterval(0.3)
+        while(Date() < timeToFlap) {}
+        
+        DispatchQueue.main.async{
+            viewController.stepLabelLoading()
         }
     }
 }

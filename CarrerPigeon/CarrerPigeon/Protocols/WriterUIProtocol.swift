@@ -17,4 +17,5 @@ protocol UIWriter {
 	func isBoxFull() -> Bool
 	func increaseBoxMessagesCounter(quantity: Int)
 	
+    func stepLabelLoading()
 }

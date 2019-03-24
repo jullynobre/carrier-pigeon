@@ -48,7 +48,24 @@ extension ViewController: UIPigeon {
 		print(quantity)
 	}
     
-    func flapWings() {pigeonImageAnimationIndex = pigeonImageAnimationIndex == 0 ? 1 : 0
+    func flapWings() {
+        pigeonImageAnimationIndex = pigeonImageAnimationIndex == 0 ? 1 : 0
         pigeonView.pigeonImage.image = UIImage(named: pigeonImagesNames[pigeonImageAnimationIndex])
+    }
+    
+    func stepLabelLoading() {
+        let labelText = pigeonView.pigeonStatusLabel.text
+        if (labelText!.countLetter(letter: ".") < 3) {
+            pigeonView.pigeonStatusLabel.text = labelText! + "."
+        } else {
+            let index = labelText!.firstIndex(of: ".") ?? labelText!.endIndex
+            pigeonView.pigeonStatusLabel.text = String(labelText![..<index])
+        }
+    }
+}
+
+extension String {
+    func countLetter(letter: Character) -> Int {
+        return self.reduce(0) {acc, c in c == letter ? acc+1 : acc}
     }
 }
