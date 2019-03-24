@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import UIKit
 
 extension ViewController: UIPigeon {
 	func updatePigeonToWaitingState() {
@@ -36,6 +37,8 @@ extension ViewController: UIPigeon {
 	func decreaseBoxMessagesCounter(quantity: Int) {
 		print(quantity)
 	}
-	
-	
+    
+    func flapWings() {pigeonImageAnimationIndex = pigeonImageAnimationIndex == 0 ? 1 : 0
+        pigeonView.pigeonImage.image = UIImage(named: pigeonImagesNames[pigeonImageAnimationIndex])
+    }
 }
