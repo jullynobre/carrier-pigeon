@@ -10,14 +10,22 @@ import UIKit
 
 class BoxModalViewController: UIViewController {
 
-    override func viewDidLoad() {
+	@IBOutlet weak var capacityTextField: UITextField!
+	
+	override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
     }
     
-
-    /*
+	@IBAction func didTapBackButton(_ sender: Any) {
+		dismiss(animated: true, completion: nil)
+	}
+	
+	@IBAction func didTapDoneButton(_ sender: Any) {
+		
+	}
+	/*
     // MARK: - Navigation
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
