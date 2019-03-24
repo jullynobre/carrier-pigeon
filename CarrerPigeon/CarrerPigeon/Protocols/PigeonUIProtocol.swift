@@ -22,4 +22,5 @@ protocol UIPigeon {
 	func decreaseBoxMessagesCounter(quantity: Int)
 	
     func flapWings()
+    func stepLabelLoading()
 }

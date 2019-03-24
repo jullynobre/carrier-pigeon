@@ -39,7 +39,7 @@ class Writer {
 				viewController.updateWriterToWritingState()
 				viewController.increaseBoxMessagesCounter(quantity: 1)
                 
-                while (Date() < endWrintig) {sleep(1)}
+                while (Date() < endWrintig) {self.stepLabelLoading(viewController: viewController)}
                 
 				//self.boxMessages.signal()
 				
@@ -48,6 +48,15 @@ class Writer {
 			}
 		}
 	}
+    
+    func stepLabelLoading(viewController: UIWriter) {
+        let timeToFlap = Date().addingTimeInterval(0.3)
+        while(Date() < timeToFlap) {}
+        
+        DispatchQueue.main.async{
+            viewController.stepLabelLoading()
+        }
+    }
 	
 	func dismissWriter() {
 		self.isFired = true
