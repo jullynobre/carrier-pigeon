@@ -9,6 +9,8 @@
 import Foundation
 
 protocol UIPigeon {
+    
+    var pigeonView: PigeonView! {get set}
 	
 	func updatePigeonToWaitingState()
 	func updatePigeonToLoadingState()
@@ -19,4 +21,5 @@ protocol UIPigeon {
 	func boxHas(quantityOfMessages: Int) -> Bool
 	func decreaseBoxMessagesCounter(quantity: Int)
 	
+    func flapWings()
 }
