@@ -40,15 +40,22 @@ class WritersView: UIView {
 		self.collectionView.dataSource = self
 		self.collectionView.register(UINib(nibName: "WriterCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: cellIdentifier)
 	}
+	
+	func cellForWriter(writerIndex: Int) -> WriterCollectionViewCell {
+		return self.collectionView.dequeueReusableCell(withReuseIdentifier: cellIdentifier, for: IndexPath(row: writerIndex, section: 0)) as! WriterCollectionViewCell
+	}
 }
 
 extension WritersView: UICollectionViewDataSource {
 	func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-		return 4
+		return self.writers.count
 	}
 	
 	func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
 		let cell = collectionView.dequeueReusableCell(withReuseIdentifier: cellIdentifier, for: indexPath) as! WriterCollectionViewCell
+		let writer = self.writers[indexPath.row]
+		
+		cell.identifierLabel.text = writer.id
 		
 		return cell
 	}
