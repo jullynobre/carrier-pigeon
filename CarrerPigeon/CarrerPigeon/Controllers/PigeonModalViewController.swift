@@ -37,6 +37,7 @@ class PigeonModalViewController: UIViewController {
 		if self.delegate != nil {
 			delegate?.createPigeon(pigeon: pigeon)
 		}
+		dismiss(animated: true, completion: nil)
 	}
 	
 }

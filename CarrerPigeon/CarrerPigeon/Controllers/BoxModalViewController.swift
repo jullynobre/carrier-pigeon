@@ -26,6 +26,7 @@ class BoxModalViewController: UIViewController {
 	
 	@IBAction func didTapDoneButton(_ sender: Any) {
 		delegate?.setBoxCapacity(capacity: Int(self.capacityTextField.text!)!)
+		dismiss(animated: true, completion: nil)
 	}
 
 }
