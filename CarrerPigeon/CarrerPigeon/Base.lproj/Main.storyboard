@@ -91,7 +91,10 @@
                         <barButtonItem key="rightBarButtonItem" title="Rodar" id="6Qi-4J-oGv"/>
                     </navigationItem>
                     <connections>
+                        <outlet property="addPigeonButton" destination="wek-SI-chF" id="pC0-Jd-rde"/>
+                        <outlet property="addWriterButton" destination="Uh2-SX-HIz" id="8un-np-yfw"/>
                         <outlet property="boxView" destination="lpd-Ww-m4n" id="XGP-Qm-awc"/>
+                        <outlet property="configureBoxButton" destination="Idu-Be-G5g" id="qhh-pS-tVH"/>
                         <outlet property="pigeonView" destination="icJ-fe-pO5" id="YLz-VV-BL1"/>
                         <outlet property="writersView" destination="ZqN-LV-7Nx" id="gYA-AB-fPU"/>
                     </connections>

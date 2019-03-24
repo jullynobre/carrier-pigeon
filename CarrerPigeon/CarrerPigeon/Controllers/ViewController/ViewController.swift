@@ -18,7 +18,11 @@ class ViewController: UIViewController {
 	@IBOutlet weak var boxView: BoxView!
 	@IBOutlet weak var writersView: WritersView!
 	
-    var pigeonImageAnimationIndex = 0
+	@IBOutlet weak var addPigeonButton: UIButton!
+	@IBOutlet weak var configureBoxButton: UIButton!
+	@IBOutlet weak var addWriterButton: UIButton!
+	
+	var pigeonImageAnimationIndex = 0
     let pigeonImagesNames = ["pigeon-up", "pigeon-down"]
 	
 	override func viewDidLoad() {
@@ -27,6 +31,8 @@ class ViewController: UIViewController {
 		
 		let pigeon = Pigeon(pigeonCapacity: 5, timeToLoad: 5, timeToTravel: 5, timeToUnload: 5)
         pigeon.run(viewController: self)
+		
+		disableButtons()
 	}
 	
 	override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -40,5 +46,10 @@ class ViewController: UIViewController {
 			let vc: WriterModalViewController = segue.destination as! WriterModalViewController
 			vc.delegate = self
 		}
+	}
+	
+	func disableButtons() {
+		self.addPigeonButton.isEnabled = false
+		self.addWriterButton.isEnabled = false
 	}
 }
