@@ -22,6 +22,10 @@ extension ViewController: WriterModalDelegate {
 
 extension ViewController: BoxModalDelegate {
 	func setBoxCapacity(capacity: Int) {
+		self.boxView.setCapacity(capacity: capacity)
+		
+		boxCapacitySemaphore = DispatchSemaphore(value: capacity)
+		
 		self.addPigeonButton.isEnabled = true
 		self.addWriterButton.isEnabled = true
 		self.configureBoxButton.isEnabled = false

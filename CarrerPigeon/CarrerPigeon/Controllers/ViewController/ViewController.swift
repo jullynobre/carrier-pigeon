@@ -9,7 +9,7 @@
 import UIKit
 import Foundation
 
-var boxMessagesSemaphore: DispatchSemaphore?
+var boxMessagesSemaphore: DispatchSemaphore? = DispatchSemaphore(value: 0)
 var boxCapacitySemaphore: DispatchSemaphore?
 
 class ViewController: UIViewController {
@@ -27,10 +27,6 @@ class ViewController: UIViewController {
 	
 	override func viewDidLoad() {
 		super.viewDidLoad()
-		boxMessagesSemaphore = DispatchSemaphore(value: 0)
-		
-		let pigeon = Pigeon(pigeonCapacity: 5, timeToLoad: 5, timeToTravel: 5, timeToUnload: 5)
-        pigeon.run(viewController: self)
 		
 		disableButtons()
 	}
