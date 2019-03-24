@@ -117,15 +117,31 @@
 		572F005E223E9ECB006A79DD /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
-				5725D64F223B17C5005E291B /* ViewController.swift */,
-				572F005F223E9EFA006A79DD /* ViewController+UIWriter.swift */,
-				572F0061223E9F0B006A79DD /* ViewController+UIPigeon.swift */,
+				573D987F2248236700E00187 /* ViewController */,
+				573D987E2248235300E00187 /* ModalControllers */,
+			);
+			path = Controllers;
+			sourceTree = "<group>";
+		};
+		573D987E2248235300E00187 /* ModalControllers */ = {
+			isa = PBXGroup;
+			children = (
 				573D986D2248088C00E00187 /* PigeonModalViewController.swift */,
 				573D986F2248089A00E00187 /* WriterModalViewController.swift */,
 				573D9871224808A800E00187 /* BoxModalViewController.swift */,
+			);
+			path = ModalControllers;
+			sourceTree = "<group>";
+		};
+		573D987F2248236700E00187 /* ViewController */ = {
+			isa = PBXGroup;
+			children = (
+				5725D64F223B17C5005E291B /* ViewController.swift */,
+				572F005F223E9EFA006A79DD /* ViewController+UIWriter.swift */,
+				572F0061223E9F0B006A79DD /* ViewController+UIPigeon.swift */,
 				573D987C22481C0B00E00187 /* ViewController+ModalDelegates.swift */,
 			);
-			path = Controllers;
+			path = ViewController;
 			sourceTree = "<group>";
 		};
 		575AE86722406F4A005379AC /* Components */ = {
