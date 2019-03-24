@@ -9,6 +9,9 @@
 import Foundation
 
 class Writer {
+	
+	let id: String
+	
 	let boxMessages: DispatchSemaphore
 	let boxCapacity: DispatchSemaphore
 	
@@ -20,11 +23,13 @@ class Writer {
 	
 	init (boxMessagesSemaphore: DispatchSemaphore,
 		 boxCapacitySemaphore: DispatchSemaphore,
-		 timeToWrite: Int) {
+		 timeToWrite: Int,
+		 id: String) {
 		
 		self.boxMessages = boxMessagesSemaphore
 		self.boxCapacity = boxCapacitySemaphore
 		self.timeToWrite = timeToWrite
+		self.id = id
 	}
 	
 	func run (viewController: UIWriter) {

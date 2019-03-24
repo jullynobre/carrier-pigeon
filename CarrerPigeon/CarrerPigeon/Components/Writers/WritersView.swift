@@ -11,8 +11,9 @@ import UIKit
 class WritersView: UIView {
 
 	@IBOutlet var contentView: UIView!
-	
 	@IBOutlet weak var collectionView: UICollectionView!
+	
+	var writers: [Writer] = []
 	
 	let cellIdentifier = "WriterCell"
 	
@@ -43,11 +44,12 @@ class WritersView: UIView {
 
 extension WritersView: UICollectionViewDataSource {
 	func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-		return 5
+		return 4
 	}
 	
 	func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
 		let cell = collectionView.dequeueReusableCell(withReuseIdentifier: cellIdentifier, for: indexPath) as! WriterCollectionViewCell
+		
 		return cell
 	}
 	

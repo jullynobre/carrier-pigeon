@@ -10,7 +10,11 @@ import UIKit
 
 class WriterCollectionViewCell: UICollectionViewCell {
 
-    override func awakeFromNib() {
+	@IBOutlet weak var statusLabel: UILabel!
+	@IBOutlet weak var image: UIImageView!
+	@IBOutlet weak var identifierLabel: UILabel!
+	
+	override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
 		

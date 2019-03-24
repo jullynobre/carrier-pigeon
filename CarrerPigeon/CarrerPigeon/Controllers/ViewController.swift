@@ -14,9 +14,11 @@ class ViewController: UIViewController {
 	@IBOutlet weak var pigeonView: PigeonView!
 	@IBOutlet weak var boxView: BoxView!
 	@IBOutlet weak var writersView: WritersView!
-    
+	
     var pigeonImageAnimationIndex = 0
     let pigeonImagesNames = ["pigeon-up", "pigeon-down"]
+	
+	var writers: [Writer] = []
 	
 	override func viewDidLoad() {
 		super.viewDidLoad()
