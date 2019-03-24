@@ -9,6 +9,9 @@
 import UIKit
 import Foundation
 
+var boxMessagesSemaphore: DispatchSemaphore?
+var boxCapacitySemaphore: DispatchSemaphore?
+
 class ViewController: UIViewController {
 
 	@IBOutlet weak var pigeonView: PigeonView!
@@ -22,9 +25,9 @@ class ViewController: UIViewController {
 	
 	override func viewDidLoad() {
 		super.viewDidLoad()
-		let testSemaphore = DispatchSemaphore(value: 1)
+		boxMessagesSemaphore = DispatchSemaphore(value: 0)
         
-        let pigeon = Pigeon(boxMessagesSemaphore: testSemaphore, boxCapacitySemaphore: testSemaphore, pigeonCapacity: 5, timeToLoad: 5, timeToTravel: 5, timeToUnload: 5)
+		let pigeon = Pigeon(pigeonCapacity: 5, timeToLoad: 5, timeToTravel: 5, timeToUnload: 5)
         pigeon.run(viewController: self)
 	}
 

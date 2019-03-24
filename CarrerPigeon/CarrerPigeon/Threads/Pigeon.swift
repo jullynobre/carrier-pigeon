@@ -10,8 +10,6 @@ import Foundation
 import UIKit
 
 class Pigeon {
-	let boxMessages: DispatchSemaphore
-	let boxCapacity: DispatchSemaphore
 	
 	let capacity: Int
 	
@@ -23,13 +21,10 @@ class Pigeon {
 	
 	let thread = DispatchQueue.global()
 	
-	init (boxMessagesSemaphore: DispatchSemaphore,
-		 boxCapacitySemaphore: DispatchSemaphore,
-		 pigeonCapacity: Int,
-		 timeToLoad: Int, timeToTravel: Int, timeToUnload: Int) {
-		
-		self.boxMessages = boxMessagesSemaphore
-		self.boxCapacity = boxCapacitySemaphore
+	init (pigeonCapacity: Int,
+		 timeToLoad: Int,
+		 timeToTravel: Int,
+		 timeToUnload: Int) {
 		
 		self.capacity = pigeonCapacity
 		

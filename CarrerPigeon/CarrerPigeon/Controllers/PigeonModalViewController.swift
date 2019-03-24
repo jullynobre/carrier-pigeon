@@ -15,6 +15,9 @@ class PigeonModalViewController: UIViewController {
 	@IBOutlet weak var timeToFlyTextField: UITextField!
 	@IBOutlet weak var timeToUnloadTextField: UITextField!
 	
+	//Protocol used to send data to ViewController
+	let delegate: PigeonModalDelegate? = nil
+	
 	override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -27,7 +30,14 @@ class PigeonModalViewController: UIViewController {
 	}
 	
 	@IBAction func didTapDoneButton(_ sender: Any) {
-	
+		let pigeon = Pigeon(pigeonCapacity: Int(self.capacityTextField.text!)!,
+							timeToLoad: Int(self.timeToLoadTextField.text!)!,
+							timeToTravel: Int(self.timeToFlyTextField.text!)!,
+							timeToUnload: Int(self.timeToUnloadTextField.text!)!)
+		
+		if self.delegate != nil {
+			delegate?.createPigeon(pigeon: pigeon)
+		}
 	}
 	/*
     // MARK: - Navigation

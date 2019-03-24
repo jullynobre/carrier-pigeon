@@ -9,11 +9,7 @@
 import Foundation
 
 class Writer {
-	
 	let id: String
-	
-	let boxMessages: DispatchSemaphore
-	let boxCapacity: DispatchSemaphore
 	
 	let timeToWrite: Int
 	
@@ -21,13 +17,9 @@ class Writer {
 	
 	let thread = DispatchQueue.global()
 	
-	init (boxMessagesSemaphore: DispatchSemaphore,
-		 boxCapacitySemaphore: DispatchSemaphore,
-		 timeToWrite: Int,
+	init (timeToWrite: Int,
 		 id: String) {
 		
-		self.boxMessages = boxMessagesSemaphore
-		self.boxCapacity = boxCapacitySemaphore
 		self.timeToWrite = timeToWrite
 		self.id = id
 	}
@@ -40,7 +32,7 @@ class Writer {
 					viewController.updateWriterToWaitingState()
 				}
 				
-				self.boxCapacity.wait()
+				//self.boxCapacity.wait()
                 
 				let endWrintig = Date().addingTimeInterval(Double(self.timeToWrite))
                 
@@ -49,7 +41,7 @@ class Writer {
                 
                 while (Date() < endWrintig) {sleep(1)}
                 
-				self.boxMessages.signal()
+				//self.boxMessages.signal()
 				
 				viewController.updateWriterToPuttingMessagesIntoBox()
 				
