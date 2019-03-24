@@ -10,7 +10,8 @@ import Foundation
 
 extension ViewController: PigeonModalDelegate {
 	func createPigeon(pigeon: Pigeon) {
-		print("Recived Pigeon")
+		pigeonThread = pigeon
+        pigeon.run(viewController: self)
 	}
 }
 

@@ -36,20 +36,20 @@ class Pigeon {
 	func run (viewController: UIPigeon) {
 		thread.async {
 			while(!self.isFree) {
-//                if !viewController.boxHas(quantityOfMessages: self.capacity){
-//                    viewController.updatePigeonToWaitingState()
-//                }
-//
-//                for _ in 1...self.capacity { self.boxMessages.wait() }
+                if !viewController.boxHas(quantityOfMessages: self.capacity){
+                    viewController.updatePigeonToWaitingState()
+                }
+
+                for _ in 1...self.capacity { boxMessagesSemaphore!.wait() }
 
                 var endAction = Date().addingTimeInterval(Double(self.timeToLoad))
 
                 viewController.updatePigeonToLoadingState()
-//                viewController.decreaseBoxMessagesCounter(quantity: self.capacity)
+                viewController.decreaseBoxMessagesCounter(quantity: self.capacity)
 
                 while(Date() < endAction) {self.stepLabelLoading(viewController: viewController)}
 
-//                for _ in 1...self.capacity { self.boxCapacity.signal() }
+                for _ in 1...self.capacity { boxCapacitySemaphore!.signal() }
         
                 endAction = Date().addingTimeInterval(Double(self.timeToTravel))
                 
