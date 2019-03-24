@@ -96,6 +96,7 @@
                         <outlet property="boxView" destination="lpd-Ww-m4n" id="XGP-Qm-awc"/>
                         <outlet property="configureBoxButton" destination="Idu-Be-G5g" id="qhh-pS-tVH"/>
                         <outlet property="pigeonView" destination="icJ-fe-pO5" id="YLz-VV-BL1"/>
+                        <outlet property="runButton" destination="6Qi-4J-oGv" id="VxJ-AE-We2"/>
                         <outlet property="writersView" destination="ZqN-LV-7Nx" id="gYA-AB-fPU"/>
                     </connections>
                 </viewController>

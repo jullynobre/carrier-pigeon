@@ -30,6 +30,7 @@ class WriterModalViewController: UIViewController {
 		if self.delegate != nil {
 			delegate?.createWriter(writer: writer)
 		}
+		
 		dismiss(animated: true, completion: nil)
 	}
 	

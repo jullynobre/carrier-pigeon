@@ -17,7 +17,10 @@ extension ViewController: PigeonModalDelegate {
 
 extension ViewController: WriterModalDelegate {
 	func createWriter(writer: Writer) {
-		print("Recived Writer")
+		self.writersView.writers.append(writer)
+		self.writersView.collectionView.reloadData()
+		
+		//writer.run()
 	}
 }
 
@@ -30,6 +33,7 @@ extension ViewController: BoxModalDelegate {
 		self.addPigeonButton.isEnabled = true
 		self.addWriterButton.isEnabled = true
 		self.configureBoxButton.isEnabled = false
+		self.runButton.isEnabled = true
 		
 		print("Recived Box capacity")
 	}
