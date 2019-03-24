@@ -65,14 +65,14 @@
                                 <rect key="frame" x="337" y="144" width="22" height="22"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <connections>
-                                    <segue destination="xe7-Ag-GIL" kind="presentation" id="dFf-ec-JCg"/>
+                                    <segue destination="xe7-Ag-GIL" kind="presentation" identifier="PigeonModalDelegate" id="dFf-ec-JCg"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="contactAdd" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Uh2-SX-HIz">
                                 <rect key="frame" x="337" y="442" width="22" height="22"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <connections>
-                                    <segue destination="wDc-vu-p1q" kind="presentation" id="cR0-DX-v8I"/>
+                                    <segue destination="wDc-vu-p1q" kind="presentation" identifier="WriterModalDelegate" id="cR0-DX-v8I"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Idu-Be-G5g">
@@ -80,7 +80,7 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="configurar"/>
                                 <connections>
-                                    <segue destination="GRB-xV-8vz" kind="presentation" id="F5v-To-KtW"/>
+                                    <segue destination="GRB-xV-8vz" kind="presentation" identifier="BoxModalDelegate" id="F5v-To-KtW"/>
                                 </connections>
                             </button>
                         </subviews>

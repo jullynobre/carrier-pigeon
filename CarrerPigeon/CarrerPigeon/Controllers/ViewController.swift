@@ -26,9 +26,21 @@ class ViewController: UIViewController {
 	override func viewDidLoad() {
 		super.viewDidLoad()
 		boxMessagesSemaphore = DispatchSemaphore(value: 0)
-        
+		
 		let pigeon = Pigeon(pigeonCapacity: 5, timeToLoad: 5, timeToTravel: 5, timeToUnload: 5)
         pigeon.run(viewController: self)
 	}
-
+	
+	override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+		if segue.identifier == "PigeonModalDelegate" {
+			let vc: PigeonModalViewController = segue.destination as! PigeonModalViewController
+			vc.delegate = self
+		} else if segue.identifier == "BoxModalDelegate" {
+			let vc: BoxModalViewController = segue.destination as! BoxModalViewController
+			vc.delegate = self
+		} else if segue.identifier == "WriterModalDelegate" {
+			let vc: WriterModalViewController = segue.destination as! WriterModalViewController
+			vc.delegate = self
+		}
+	}
 }

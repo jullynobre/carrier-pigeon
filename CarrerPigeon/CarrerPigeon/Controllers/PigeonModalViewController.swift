@@ -15,7 +15,7 @@ class PigeonModalViewController: UIViewController {
 	@IBOutlet weak var timeToFlyTextField: UITextField!
 	@IBOutlet weak var timeToUnloadTextField: UITextField!
 	
-	let delegate: PigeonModalDelegate? = nil
+	var delegate: PigeonModalDelegate? = nil
 	
 	override func viewDidLoad() {
         super.viewDidLoad()

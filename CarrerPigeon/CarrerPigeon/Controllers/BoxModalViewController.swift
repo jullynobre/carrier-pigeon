@@ -12,7 +12,7 @@ class BoxModalViewController: UIViewController {
 
 	@IBOutlet weak var capacityTextField: UITextField!
 	
-	let delegate: BoxModalDelegate? = nil
+	var delegate: BoxModalDelegate? = nil
 	
 	override func viewDidLoad() {
         super.viewDidLoad()

@@ -12,7 +12,7 @@ class WriterModalViewController: UIViewController {
 	@IBOutlet weak var idTextField: UITextField!
 	@IBOutlet weak var timeToWriteTextField: UITextField!
 	
-	let delegate: WriterModalDelegate? = nil
+	var delegate: WriterModalDelegate? = nil
 	
 	override func viewDidLoad() {
         super.viewDidLoad()
