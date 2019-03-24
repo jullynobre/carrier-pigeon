@@ -99,10 +99,10 @@
             </objects>
             <point key="canvasLocation" x="1028" y="126"/>
         </scene>
-        <!--View Controller-->
+        <!--Pigeon Modal View Controller-->
         <scene sceneID="GWY-0D-qZh">
             <objects>
-                <viewController id="xe7-Ag-GIL" sceneMemberID="viewController">
+                <viewController id="xe7-Ag-GIL" customClass="PigeonModalViewController" customModule="CarrerPigeon" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="m1W-UM-bId">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -207,10 +207,10 @@
             </objects>
             <point key="canvasLocation" x="262" y="127"/>
         </scene>
-        <!--View Controller-->
+        <!--Box Modal View Controller-->
         <scene sceneID="OpU-sE-JZ5">
             <objects>
-                <viewController id="GRB-xV-8vz" sceneMemberID="viewController">
+                <viewController id="GRB-xV-8vz" customClass="BoxModalViewController" customModule="CarrerPigeon" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="CMN-73-e36">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -255,10 +255,10 @@
             </objects>
             <point key="canvasLocation" x="2631" y="125"/>
         </scene>
-        <!--View Controller-->
+        <!--Writer Modal View Controller-->
         <scene sceneID="1OU-PM-jSc">
             <objects>
-                <viewController id="wDc-vu-p1q" sceneMemberID="viewController">
+                <viewController id="wDc-vu-p1q" customClass="WriterModalViewController" customModule="CarrerPigeon" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="2CE-4I-465">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
