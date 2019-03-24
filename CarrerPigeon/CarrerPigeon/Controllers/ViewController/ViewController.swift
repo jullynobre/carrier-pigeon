@@ -24,6 +24,8 @@ class ViewController: UIViewController {
 	
 	var pigeonImageAnimationIndex = 0
     let pigeonImagesNames = ["pigeon-up", "pigeon-down"]
+    
+    var pigeonThread: Pigeon?
 	
 	override func viewDidLoad() {
 		super.viewDidLoad()
