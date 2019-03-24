@@ -15,7 +15,6 @@ class PigeonModalViewController: UIViewController {
 	@IBOutlet weak var timeToFlyTextField: UITextField!
 	@IBOutlet weak var timeToUnloadTextField: UITextField!
 	
-	//Protocol used to send data to ViewController
 	let delegate: PigeonModalDelegate? = nil
 	
 	override func viewDidLoad() {
@@ -39,14 +38,5 @@ class PigeonModalViewController: UIViewController {
 			delegate?.createPigeon(pigeon: pigeon)
 		}
 	}
-	/*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
+	
 }

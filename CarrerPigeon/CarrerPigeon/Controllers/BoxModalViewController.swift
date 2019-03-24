@@ -12,6 +12,8 @@ class BoxModalViewController: UIViewController {
 
 	@IBOutlet weak var capacityTextField: UITextField!
 	
+	let delegate: BoxModalDelegate? = nil
+	
 	override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -23,16 +25,7 @@ class BoxModalViewController: UIViewController {
 	}
 	
 	@IBAction func didTapDoneButton(_ sender: Any) {
-		
+		delegate?.setBoxCapacity(capacity: Int(self.capacityTextField.text!)!)
 	}
-	/*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
 
 }
