@@ -35,7 +35,7 @@ class BoxView: UIView {
 		
 	}
 	
-    func configureProgressBar() {
+    private func configureProgressBar() {
         self.progressBar.transform = CGAffineTransform(scaleX: 1, y: 5)
         
         self.progressBar.layer.cornerRadius = 5.0
@@ -44,6 +44,8 @@ class BoxView: UIView {
 	
 	func setCapacity(capacity: Int) {
 		self.progressLabel.text = "0/\(capacity)"
+		
+		self.boxImage.image = UIImage(named: "mail-box")
 	}
 	
 	func addToBox(quantity: Int) {
