@@ -48,7 +48,14 @@ class Writer {
 				// Muda Status para dormindo
                 self.changeStatus(viewController: viewController, writerIndex: writerIndex)
 			}
+			
+			
+			DispatchQueue.main.async {
+				viewController.writersView.writers.remove(at: writerIndex)
+				viewController.writersView.collectionView.deleteItems(at: [IndexPath(item: writerIndex, section: 0)])
+			}
 		}
+		
 	}
     
     func movePencil(viewController: UIWriter, writerIndex: Int) {

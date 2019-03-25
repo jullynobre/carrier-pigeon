@@ -9,7 +9,9 @@
 import Foundation
 
 protocol UIWriter {
-    
+	
+	var writersView: WritersView! { get set }
+	
 	func isBoxFull() -> Bool
 	func increaseBoxMessagesCounter(quantity: Int)
     

@@ -77,7 +77,7 @@ extension ViewController: UICollectionViewDelegate {
 		let alert = UIAlertController(title: "Demitir \(writer.id)", message: "Tem certeza de que você quer demitir o escritor selecionado? Essa ação é irreversível.", preferredStyle: .alert)
 		
 		alert.addAction(UIAlertAction(title: "Demitir", style: .destructive, handler: {alert in
-			print("User has clicked in Dismiss Writer")
+			writer.dismissWriter()
             
 		}))
 		alert.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: nil))
