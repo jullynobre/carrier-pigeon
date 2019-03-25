@@ -29,6 +29,10 @@
                                 <rect key="frame" x="0.0" y="174" width="375" height="110"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <gestureRecognizers/>
+                                <connections>
+                                    <outletCollection property="gestureRecognizers" destination="bhU-5X-gKx" appends="YES" id="A8Q-ec-CrC"/>
+                                </connections>
                             </view>
                             <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="lpd-Ww-m4n" customClass="BoxView" customModule="CarrerPigeon" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="346" width="375" height="60"/>
@@ -101,6 +105,11 @@
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+                <tapGestureRecognizer id="bhU-5X-gKx">
+                    <connections>
+                        <action selector="didTapPigeonView:" destination="BYZ-38-t0r" id="LbT-MM-4n9"/>
+                    </connections>
+                </tapGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="1028" y="126"/>
         </scene>
