@@ -45,7 +45,7 @@ extension ViewController: UIPigeon {
 	}
 	
 	func decreaseBoxMessagesCounter(quantity: Int) {
-		print(quantity)
+		boxView.removeFromBox(quantity: quantity)
 	}
     
     func flapWings() {

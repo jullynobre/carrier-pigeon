@@ -45,7 +45,10 @@ class Pigeon {
                 var endAction = Date().addingTimeInterval(Double(self.timeToLoad))
 
                 viewController.updatePigeonToLoadingState()
-                viewController.decreaseBoxMessagesCounter(quantity: self.capacity)
+                
+                DispatchQueue.main.async {
+                    viewController.decreaseBoxMessagesCounter(quantity: self.capacity)
+                }
 
                 while(Date() < endAction) {self.stepLabelLoading(viewController: viewController)}
 
