@@ -57,10 +57,12 @@ class ViewController: UIViewController {
 	}
 	
 	@IBAction func didTapPigeonView(_ sender: Any) {
+		guard let pigeon = self.pigeonThread else { return }
+		
 		let alert = UIAlertController(title: "Libertar pombo", message: "Tem certeza de que você quer libertar o pombo na natureza? Essa ação é irreversível.", preferredStyle: .alert)
 		
 		alert.addAction(UIAlertAction(title: "Libertar", style: .destructive, handler: {alert in
-            self.pigeonThread!.releasePigeon()
+            pigeon.releasePigeon()
 		}))
 		alert.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: nil))
 		
