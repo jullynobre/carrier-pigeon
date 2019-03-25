@@ -34,6 +34,11 @@ class Pigeon {
 	}
 	
 	func run (viewController: UIPigeon) {
+        
+        DispatchQueue.main.async{
+            viewController.flapWings()
+        }
+        
 		thread.async {
 			while(!self.isFree) {
                 if !viewController.boxHas(quantityOfMessages: self.capacity){
@@ -45,7 +50,10 @@ class Pigeon {
                 var endAction = Date().addingTimeInterval(Double(self.timeToLoad))
 
                 viewController.updatePigeonToLoadingState()
-                viewController.decreaseBoxMessagesCounter(quantity: self.capacity)
+                
+                DispatchQueue.main.async {
+                    viewController.decreaseBoxMessagesCounter(quantity: self.capacity)
+                }
 
                 while(Date() < endAction) {self.stepLabelLoading(viewController: viewController)}
 
@@ -69,6 +77,9 @@ class Pigeon {
 				
                 while(Date() < endAction){self.flapWings(viewController: viewController)}
 			}
+            DispatchQueue.main.async{
+                viewController.updatePigeonToFreeState()
+            }
 		}
 	}
     

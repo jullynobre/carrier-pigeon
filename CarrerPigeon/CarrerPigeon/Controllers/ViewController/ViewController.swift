@@ -24,7 +24,7 @@ class ViewController: UIViewController {
 	
 	@IBOutlet weak var runButton: UIBarButtonItem!
 	
-	var pigeonImageAnimationIndex = 0
+	var pigeonImageAnimationIndex = 1
     let pigeonImagesNames = ["pigeon-up", "pigeon-down"]
     
     var pigeonThread: Pigeon?
@@ -60,7 +60,7 @@ class ViewController: UIViewController {
 		let alert = UIAlertController(title: "Libertar pombo", message: "Tem certeza de que você quer libertar o pombo na natureza? Essa ação é irreversível.", preferredStyle: .alert)
 		
 		alert.addAction(UIAlertAction(title: "Libertar", style: .destructive, handler: {alert in
-			print("User has clicked in Release Pigeon")
+            self.pigeonThread!.releasePigeon()
 		}))
 		alert.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: nil))
 		
@@ -76,6 +76,7 @@ extension ViewController: UICollectionViewDelegate {
 		
 		alert.addAction(UIAlertAction(title: "Demitir", style: .destructive, handler: {alert in
 			print("User has clicked in Dismiss Writer")
+            
 		}))
 		alert.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: nil))
 		

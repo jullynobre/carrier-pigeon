@@ -17,6 +17,7 @@ protocol UIPigeon {
 	func updatePigeonToFlyingState()
 	func updatePigeonToUnloadingState()
 	func updatePigeonToFlyingBackState()
+    func updatePigeonToFreeState()
 	
 	func boxHas(quantityOfMessages: Int) -> Bool
 	func decreaseBoxMessagesCounter(quantity: Int)
