@@ -34,6 +34,11 @@ class Pigeon {
 	}
 	
 	func run (viewController: UIPigeon) {
+        
+        DispatchQueue.main.async{
+            viewController.flapWings()
+        }
+        
 		thread.async {
 			while(!self.isFree) {
                 if !viewController.boxHas(quantityOfMessages: self.capacity){
@@ -72,6 +77,9 @@ class Pigeon {
 				
                 while(Date() < endAction){self.flapWings(viewController: viewController)}
 			}
+            DispatchQueue.main.async{
+                viewController.updatePigeonToFreeState()
+            }
 		}
 	}
     

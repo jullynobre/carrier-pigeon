@@ -51,7 +51,7 @@ class Writer {
 	}
     
     func movePencil(viewController: UIWriter, writerIndex: Int) {
-        let timeToMove = Date().addingTimeInterval(0.2)
+        let timeToMove = Date().addingTimeInterval(0.75)
         while(Date() < timeToMove) {}
         
         imageAnimationIndex = imageAnimationIndex == 0 ? 1:0

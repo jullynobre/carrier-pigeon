@@ -39,6 +39,11 @@ extension ViewController: UIPigeon {
             self.pigeonView.pigeonStatusLabel.text = "VOLTANDO"
         }
 	}
+    
+    func updatePigeonToFreeState() {
+        pigeonView.pigeonImage.image = UIImage()
+        pigeonView.pigeonStatusLabel.text = "LIVRE"
+    }
 	
 	func boxHas(quantityOfMessages: Int) -> Bool {
 		return false
