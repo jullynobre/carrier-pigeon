@@ -35,16 +35,16 @@ class Pigeon {
 	
 	func run (viewController: UIPigeon) {
         
-        DispatchQueue.main.async {
-            viewController.flapWings()
-        }
-        
 		thread.async {
+            DispatchQueue.main.async {
+                viewController.flapWings()
+            }
 			while(!self.isFree) {
-                
                 // Pombo fica no modo esperando enquanto não houver cartas suficientes
                 if !viewController.boxHas(quantityOfMessages: self.capacity){
-                    viewController.updatePigeonToWaitingState()
+                    DispatchQueue.main.async {
+                        viewController.updatePigeonToWaitingState()
+                    }
                 }
                 // Down n vezes no semaforo boxMessagesSemaphore, onde n é a capacidade do pombo
                 for _ in 1...self.capacity { boxMessagesSemaphore!.wait() }
