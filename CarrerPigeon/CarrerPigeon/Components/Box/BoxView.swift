@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Foundation
 
 class BoxView: UIView {
 
@@ -14,6 +15,8 @@ class BoxView: UIView {
 	@IBOutlet weak var boxImage: UIImageView!
 	@IBOutlet weak var progressLabel: UILabel!
 	@IBOutlet weak var progressBar: UIProgressView!
+    
+    let muxSemaphore = DispatchSemaphore(value: 1)
 	
 	override init(frame: CGRect) {
 		super.init(frame: frame)
@@ -49,21 +52,25 @@ class BoxView: UIView {
 	}
 	
 	func addToBox(quantity: Int) {
+        muxSemaphore.wait()
 		let progessArr = self.progressLabel.text!.components(separatedBy: "/")
 		let itens = Int(progessArr[0])! + quantity
 		let capacity = Int(progessArr[1])!
 		
 		self.progressLabel.text = "\(itens)/\(capacity)"
-		self.progressBar.setProgress(Float(quantity/capacity), animated: true)
+		self.progressBar.setProgress(Float(itens)/Float(capacity), animated: true)
+        muxSemaphore.signal()
 	}
 	
 	func removeFromBox(quantity: Int) {
+        muxSemaphore.wait()
 		let progessArr = self.progressLabel.text!.components(separatedBy: "/")
 		let itens = Int(progessArr[0])! - quantity
 		let capacity = Int(progessArr[1])!
 		
 		self.progressLabel.text = "\(itens)/\(capacity)"
-		self.progressBar.setProgress(Float(quantity/capacity), animated: true)
+		self.progressBar.setProgress(Float(itens)/Float(capacity), animated: true)
+        muxSemaphore.signal()
 	}
 	
 }

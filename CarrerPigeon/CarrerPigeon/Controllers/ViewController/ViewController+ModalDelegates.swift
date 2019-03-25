@@ -20,7 +20,7 @@ extension ViewController: WriterModalDelegate {
 		self.writersView.writers.append(writer)
 		self.writersView.collectionView.reloadData()
 		
-		//writer.run()
+        writer.run(viewController: self, writerIndex: self.writersView.writers.count-1)
 	}
 }
 

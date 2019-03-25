@@ -55,8 +55,9 @@ extension WritersView: UICollectionViewDataSource {
 		let cell = collectionView.dequeueReusableCell(withReuseIdentifier: cellIdentifier, for: indexPath) as! WriterCollectionViewCell
 		let writer = self.writers[indexPath.row]
 		
+        cell.image.image = UIImage(named:  writer.imagesNames[writer.imageAnimationIndex])
+        cell.statusLabel.text = writer.statusTexts[writer.statusTextIndex]
 		cell.identifierLabel.text = writer.id
-		
 		return cell
 	}
 	

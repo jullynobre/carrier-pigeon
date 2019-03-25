@@ -9,13 +9,9 @@
 import Foundation
 
 protocol UIWriter {
-	
-	func updateWriterToWaitingState()
-	func updateWriterToWritingState()
-	func updateWriterToPuttingMessagesIntoBox()
-	
+    
 	func isBoxFull() -> Bool
 	func increaseBoxMessagesCounter(quantity: Int)
-	
-    func stepLabelLoading()
+    
+    func updateWriter(writerIndex: Int)
 }

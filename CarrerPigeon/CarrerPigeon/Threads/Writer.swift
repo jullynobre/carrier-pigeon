@@ -16,45 +16,56 @@ class Writer {
 	var isFired = false
 	
 	let thread = DispatchQueue.global()
+    
+    var statusTextIndex = 0
+    let statusTexts = ["DORMINDO", "ESCREVENDO"]
+    
+    var imageAnimationIndex = 0
+    let imagesNames = ["writer-left", "writer-right"]
 	
-	init (timeToWrite: Int,
-		 id: String) {
-		
+	init (timeToWrite: Int, id: String) {
 		self.timeToWrite = timeToWrite
 		self.id = id
 	}
 	
-	func run (viewController: UIWriter) {
+	func run (viewController: UIWriter, writerIndex: Int) {
 		thread.async {
 			while(!self.isFired) {
-				
-				if(viewController.isBoxFull()) {
-					viewController.updateWriterToWaitingState()
-				}
-				
-				//self.boxCapacity.wait()
+                boxCapacitySemaphore!.wait()
                 
 				let endWrintig = Date().addingTimeInterval(Double(self.timeToWrite))
                 
-				viewController.updateWriterToWritingState()
-				viewController.increaseBoxMessagesCounter(quantity: 1)
+                self.changeStatus(viewController: viewController, writerIndex: writerIndex)
                 
-                while (Date() < endWrintig) {self.stepLabelLoading(viewController: viewController)}
+                while (Date() < endWrintig) {self.movePencil(viewController: viewController, writerIndex: writerIndex)}
                 
-				//self.boxMessages.signal()
+                DispatchQueue.main.async {
+                    viewController.increaseBoxMessagesCounter(quantity: 1)
+                }
+                
+                boxMessagesSemaphore!.signal()
 				
-				viewController.updateWriterToPuttingMessagesIntoBox()
-				
+                self.changeStatus(viewController: viewController, writerIndex: writerIndex)
 			}
 		}
 	}
     
-    func stepLabelLoading(viewController: UIWriter) {
-        let timeToFlap = Date().addingTimeInterval(0.3)
-        while(Date() < timeToFlap) {}
+    func movePencil(viewController: UIWriter, writerIndex: Int) {
+        let timeToMove = Date().addingTimeInterval(0.2)
+        while(Date() < timeToMove) {}
+        
+        imageAnimationIndex = imageAnimationIndex == 0 ? 1:0
         
         DispatchQueue.main.async{
-            viewController.stepLabelLoading()
+            viewController.updateWriter(writerIndex: writerIndex)
+        }
+    }
+    
+    func changeStatus(viewController: UIWriter, writerIndex: Int) {
+        statusTextIndex = statusTextIndex == 0 ? 1:0
+        
+        DispatchQueue.main.async{
+            viewController.updateWriter(writerIndex: writerIndex)
         }
     }
 	
