@@ -11,33 +11,23 @@ import UIKit
 
 extension ViewController: UIPigeon {
 	func updatePigeonToWaitingState() {
-        DispatchQueue.main.async{
-            self.pigeonView.pigeonStatusLabel.text = "DORMINDO"
-        }
+        self.pigeonView.pigeonStatusLabel.text = "DORMINDO"
 	}
 	
 	func updatePigeonToLoadingState() {
-        DispatchQueue.main.async{
-            self.pigeonView.pigeonStatusLabel.text = "CARREGANDO"
-        }
+        self.pigeonView.pigeonStatusLabel.text = "CARREGANDO"
 	}
 	
 	func updatePigeonToFlyingState() {
-        DispatchQueue.main.async{
-            self.pigeonView.pigeonStatusLabel.text = "VIAJANDO"
-        }
+        self.pigeonView.pigeonStatusLabel.text = "VIAJANDO"
 	}
 	
 	func updatePigeonToUnloadingState() {
-        DispatchQueue.main.async{
-            self.pigeonView.pigeonStatusLabel.text = "DESCARREGANDO"
-        }
+        self.pigeonView.pigeonStatusLabel.text = "DESCARREGANDO"
 	}
 	
 	func updatePigeonToFlyingBackState() {
-        DispatchQueue.main.async{
-            self.pigeonView.pigeonStatusLabel.text = "VOLTANDO"
-        }
+        self.pigeonView.pigeonStatusLabel.text = "VOLTANDO"
 	}
     
     func updatePigeonToFreeState() {
