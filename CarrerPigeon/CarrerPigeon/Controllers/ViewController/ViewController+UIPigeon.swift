@@ -12,7 +12,7 @@ import UIKit
 extension ViewController: UIPigeon {
 	func updatePigeonToWaitingState() {
         DispatchQueue.main.async{
-            self.pigeonView.pigeonStatusLabel.text = "ESPERANDO"
+            self.pigeonView.pigeonStatusLabel.text = "DORMINDO"
         }
 	}
 	

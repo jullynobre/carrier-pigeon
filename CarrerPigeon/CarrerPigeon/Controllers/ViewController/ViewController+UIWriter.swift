@@ -7,28 +7,19 @@
 //
 
 import Foundation
+import UIKit
 
 extension ViewController: UIWriter {
-	
-	func updateWriterToWaitingState() {
-		print("W Waiting")
-	}
-	
-	func updateWriterToWritingState() {
-		print("W Writing")
-	}
-	
-	func updateWriterToPuttingMessagesIntoBox() {
-		print("W Putting messages into box")
-	}
 	
 	func isBoxFull() -> Bool {
 		return true
 	}
 	
 	func increaseBoxMessagesCounter(quantity: Int) {
-		print(quantity)
+		boxView.addToBox(quantity: 1)
 	}
 	
-	
+    func updateWriter(writerIndex: Int) {
+        self.writersView.collectionView.reloadItems(at: [IndexPath(row: writerIndex, section: 0)])
+    }
 }
