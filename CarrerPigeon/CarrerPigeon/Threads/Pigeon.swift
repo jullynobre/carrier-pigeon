@@ -35,48 +35,60 @@ class Pigeon {
 	
 	func run (viewController: UIPigeon) {
         
-        DispatchQueue.main.async{
+        DispatchQueue.main.async {
             viewController.flapWings()
         }
         
 		thread.async {
 			while(!self.isFree) {
+                
+                // Pombo fica no modo esperando enquanto não houver cartas suficientes
                 if !viewController.boxHas(quantityOfMessages: self.capacity){
                     viewController.updatePigeonToWaitingState()
                 }
-
+                // Down n vezes no semaforo boxMessagesSemaphore, onde n é a capacidade do pombo
                 for _ in 1...self.capacity { boxMessagesSemaphore!.wait() }
-
-                var endAction = Date().addingTimeInterval(Double(self.timeToLoad))
-
-                viewController.updatePigeonToLoadingState()
                 
+                //Calcula hora em que termina o tempo de carregamento
+                var endAction = Date().addingTimeInterval(Double(self.timeToLoad))
+                // Carregando pombo (UI)
                 DispatchQueue.main.async {
+                    viewController.updatePigeonToLoadingState()
                     viewController.decreaseBoxMessagesCounter(quantity: self.capacity)
                 }
-
-                while(Date() < endAction) {self.stepLabelLoading(viewController: viewController)}
-
+                // Mostra carregamento enquanto não atingir a hora de fim do carregamento
+                while(Date() < endAction) { self.stepLabelLoading(viewController: viewController) }
+                
+                // Up n vezes no semaforo boxCapacitySemaphore, onde n é a capacidade do pombo
                 for _ in 1...self.capacity { boxCapacitySemaphore!.signal() }
-        
+                
+                // Calcula hora em que termina o tempo da viagem
                 endAction = Date().addingTimeInterval(Double(self.timeToTravel))
-                
-                viewController.updatePigeonToFlyingState()
-                
+                // Pombo voando (UI)
+                DispatchQueue.main.async {
+                    viewController.updatePigeonToFlyingState()
+                }
+                // Enquanto não tiver terminado o tempo de viagem, o pombo bate asa
                 while(Date() < endAction){self.flapWings(viewController: viewController)}
 				
+                // Calcula hora em que termina o tempo de descarregamento
                 endAction = Date().addingTimeInterval(Double(self.timeToUnload))
-                
-				viewController.updatePigeonToUnloadingState()
-			
+                // Pombo descarregando (UI)
+                DispatchQueue.main.async {
+                    viewController.updatePigeonToUnloadingState()
+                }
+                // Mostra carregamento enquanto não atingir a hora de fim do descarregamento
                 while(Date() < endAction) {self.stepLabelLoading(viewController: viewController)}
-				
+				// Calcula tempo de volta
 				endAction = Date().addingTimeInterval(Double(self.timeToTravel))
-                
-				viewController.updatePigeonToFlyingBackState()
-				
+                // atualiza texto de estatus do pombo para voltando
+                DispatchQueue.main.async {
+                    viewController.updatePigeonToFlyingBackState()
+                }
+				// Enquanto não tiver terminado o tempo de volta, o pombo bate asa
                 while(Date() < endAction){self.flapWings(viewController: viewController)}
 			}
+            // mostra o pombo livre
             DispatchQueue.main.async{
                 viewController.updatePigeonToFreeState()
             }

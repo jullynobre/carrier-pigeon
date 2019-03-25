@@ -31,20 +31,21 @@ class Writer {
 	func run (viewController: UIWriter, writerIndex: Int) {
 		thread.async {
 			while(!self.isFired) {
+                // Down no semaphoro boxCapacitySemaphore
                 boxCapacitySemaphore!.wait()
-                
+                // Calcula tempo de termino de escrita
 				let endWrintig = Date().addingTimeInterval(Double(self.timeToWrite))
-                
+                // Muda estatus do pombo para escrevendo
                 self.changeStatus(viewController: viewController, writerIndex: writerIndex)
-                
+                // Move lapis enquanto não chegar a hora de terminar escrita
                 while (Date() < endWrintig) {self.movePencil(viewController: viewController, writerIndex: writerIndex)}
-                
+                // Atualiza interface da caixa
                 DispatchQueue.main.async {
                     viewController.increaseBoxMessagesCounter(quantity: 1)
                 }
-                
+                // Up no semaforo boxMessagesSemaphore
                 boxMessagesSemaphore!.signal()
-				
+				// Muda Status para dormindo
                 self.changeStatus(viewController: viewController, writerIndex: writerIndex)
 			}
 		}
