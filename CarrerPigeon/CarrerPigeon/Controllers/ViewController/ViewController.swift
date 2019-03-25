@@ -30,6 +30,8 @@ class ViewController: UIViewController {
 	override func viewDidLoad() {
 		super.viewDidLoad()
 		
+		self.writersView.collectionView.delegate = self
+		
 		disableButtons()
 	}
 	
@@ -50,5 +52,31 @@ class ViewController: UIViewController {
 		self.addPigeonButton.isEnabled = false
 		self.addWriterButton.isEnabled = false
 		self.runButton.isEnabled = false
+	}
+	
+	@IBAction func didTapPigeonView(_ sender: Any) {
+		let alert = UIAlertController(title: "Libertar pombo", message: "Tem certeza de que você quer libertar o pombo na natureza? Essa ação é irreversível.", preferredStyle: .alert)
+		
+		alert.addAction(UIAlertAction(title: "Libertar", style: .destructive, handler: {alert in
+			print("User has clicked in Release Pigeon")
+		}))
+		alert.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: nil))
+		
+		self.present(alert, animated: true, completion: nil)
+	}
+}
+
+extension ViewController: UICollectionViewDelegate {
+	func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+		let writer = self.writersView.writers[indexPath.row]
+		
+		let alert = UIAlertController(title: "Demitir \(writer.id)", message: "Tem certeza de que você quer demitir o escritor selecionado? Essa ação é irreversível.", preferredStyle: .alert)
+		
+		alert.addAction(UIAlertAction(title: "Demitir", style: .destructive, handler: {alert in
+			print("User has clicked in Dismiss Writer")
+		}))
+		alert.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: nil))
+		
+		self.present(alert, animated: true, completion: nil)
 	}
 }

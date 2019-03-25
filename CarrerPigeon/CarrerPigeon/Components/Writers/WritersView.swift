@@ -60,5 +60,4 @@ extension WritersView: UICollectionViewDataSource {
 		return cell
 	}
 	
-	
 }
