@@ -14,6 +14,7 @@ class Writer {
 	let timeToWrite: Int
 	
 	var isFired = false
+    var endJob = false
 	
 	let thread = DispatchQueue.global()
     
@@ -22,6 +23,8 @@ class Writer {
     
     var imageAnimationIndex = 0
     let imagesNames = ["writer-left", "writer-right"]
+    
+    var writerCellIndex: Int?
 	
 	init (timeToWrite: Int, id: String) {
 		self.timeToWrite = timeToWrite
@@ -29,6 +32,7 @@ class Writer {
 	}
 	
 	func run (viewController: UIWriter, writerIndex: Int) {
+        writerCellIndex = writerIndex
 		thread.async {
 			while(!self.isFired) {
                 // Down no semaphoro boxCapacitySemaphore
@@ -49,14 +53,18 @@ class Writer {
                 self.changeStatus(viewController: viewController, writerIndex: writerIndex)
 			}
 			
-			
+            self.endJob = true
 			DispatchQueue.main.async {
-				viewController.writersView.writers.remove(at: writerIndex)
-				viewController.writersView.collectionView.deleteItems(at: [IndexPath(item: writerIndex, section: 0)])
+				viewController.updateWriter(writerIndex: writerIndex)
 			}
 		}
-		
 	}
+    
+    func rerun(viewController: UIWriter) {
+        isFired = false
+        endJob = false
+        run(viewController: viewController, writerIndex: writerCellIndex!)
+    }
     
     func movePencil(viewController: UIWriter, writerIndex: Int) {
         let timeToMove = Date().addingTimeInterval(0.75)
@@ -76,8 +84,4 @@ class Writer {
             viewController.updateWriter(writerIndex: writerIndex)
         }
     }
-	
-	func dismissWriter() {
-		self.isFired = true
-	}
 }

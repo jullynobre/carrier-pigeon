@@ -74,14 +74,19 @@ extension ViewController: UICollectionViewDelegate {
 	func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
 		let writer = self.writersView.writers[indexPath.row]
 		
-		let alert = UIAlertController(title: "Demitir \(writer.id)", message: "Tem certeza de que você quer demitir o escritor selecionado? Essa ação é irreversível.", preferredStyle: .alert)
-		
-		alert.addAction(UIAlertAction(title: "Demitir", style: .destructive, handler: {alert in
-			writer.dismissWriter()
+        if (writer.isFired) {
+            writer.isFired = false
+            writer.rerun(viewController: self)
+            writersView.collectionView.reloadItems(at: [IndexPath(row: writer.writerCellIndex!, section: 0)])
+        } else {
+            let alert = UIAlertController(title: "Demitir \(writer.id)", message: "Tem certeza de que você quer demitir o escritor selecionado? Essa ação é irreversível.", preferredStyle: .alert)
             
-		}))
-		alert.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: nil))
-		
-		self.present(alert, animated: true, completion: nil)
+            alert.addAction(UIAlertAction(title: "Demitir", style: .destructive, handler: {alert in
+                writer.isFired = true
+                
+            }))
+            alert.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: nil))
+            self.present(alert, animated: true, completion: nil)
+        }
 	}
 }
